@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[bahasai]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tikz-cd}
+\usepackage[shortlabels]{enumitem}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{mathabx}
+\usepackage[margin=1in]{geometry}
+\usepackage{tcolorbox} % Membuat text di dalam box berwarna
+%\usepackage{geometry} %These two package 
+%\usepackage{marginnote} % intended to make a notes on the margin
+\usepackage{bbm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}
+\newtheorem{corollary}{Akibat}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem*{definition}{Definisi}
+\newtheorem*{problem}{Soal}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{\textbf{Catatan}}
+\newtheorem*{solution}{\textcolor{red}{Solusi}}
+
+
+% New Command : Notasi bilangan, ruang dll.
+\newcommand{\er}{\mathbb{R}}            % real number
+\newcommand{\C}{\mathbb{C}}             % complex number
+\newcommand{\Rn}{\mathbb{R}^n}          % n-Euclidean space
+\newcommand{\Rk}{\mathbb{R}^k}          % k-Euclidean Space
+\newcommand{\Rm}{\mathbb{R}^m}          % m-Euclidean space
+\newcommand{\Hreal}{\mathbb{H}}	        % Half real 
+\newcommand{\Hn}{\mathbb{H}^n}          % n-Half space
+\newcommand{\Hk}{\mathbb{H}^k}          % k-Half space
+\newcommand{\Hm}{\mathbb{H}^m}          % m-Half space
+\newcommand{\Q}{\mathbb{Q}}             % rational Q
+\newcommand{\Z}{\mathbb{Z}}             % Integer Z
+\newcommand{\Zn}{\mathbb{Z}^n}          % Z^n
+\newcommand{\Ssatu}{\mathbb{S}^1}       % S^1
+\newcommand{\Sdua}{\mathbb{S}^2}        % S^2
+\newcommand{\Stiga}{\mathbb{S}^3}       % S^3
+\newcommand{\satukuart}{\mathbbm{1}}    % kuarternion 1
+\newcommand{\ikuart}{\mathbbm{i}}       % kuarternion i
+\newcommand{\jkuart}{\mathbbm{j}}       % kuarternion j
+\newcommand{\kkuart}{\mathbbm{k}}       % kuarternion k
+\newcommand{\seperdua}{\frac{1}{2}}     % 1/2
+\renewcommand\qedsymbol{$\blacksquare$}
+
+% New command : Notasi Grup Lie
+\newcommand{\Mnr}{\text{M}(n,\mathbb{R})}   % M(n,R)
+\newcommand{\Mnc}{\text{M}(n,\mathbb{C})}   % M(n,C)
+\newcommand{\GL}{\text{GL}}                 % GL
+\newcommand{\GLnr}{\text{GL}(n,\mathbb{R})} % GL(n,R)
+\newcommand{\GLnc}{\text{GL}(n,\mathbb{C})} % GL(n,C)
+\newcommand{\SL}{\text{SL}}                 % SL
+\newcommand{\SLnr}{\text{SL}(n,\mathbb{R})} % SL(n,R)
+\newcommand{\SLnc}{\text{SL}(n,\mathbb{C})} % SL(n,C)
+\newcommand{\On}{\text{O}(n)}               % O(n)
+\newcommand{\Un}{\text{U}(n)}               % U(n)
+\newcommand{\SUn}{\text{SU}(n)}             % SU(n)
+\newcommand{\SOn}{\text{SO}(n)}             % SO(n)
+\newcommand{\rp}{\mathbb{RP}}               % RP
+\newcommand{\rpnr}{\mathbb{RP}^n}           % RP^n
+\newcommand{\Lie}{\text{Lie}}               % Lie
+\newcommand{\LieG}{\text{Lie}(G)}           % Lie(G)
+\newcommand{\LieH}{\text{Lie}(H)}               % Lie(H)
+
+% New Command : Notasi Pemetaan/fungsi
+\newcommand{\image}{\text{Im }}             % Peta
+\newcommand{\kernel}{\text{Ker }}           % Kernel
+\newcommand{\rank}{\text{rank }}            % rank
+\newcommand{\Id}{\text{Id}}                 % Pemetaan Identitas
+\newcommand{\pr}{\text{pr}}                 % Pemetaan proyeksi
+\newcommand\norm[1]{\left\lVert#1\right\rVert} % notasi norm
+\newcommand\metric[1]{\langle#1\rangle}     % notasi HKD
+
+
+% New Command : Notasi Smooth Manifold
+\newcommand{\Cinf}{C^{\inf}}            % space smth func 
+\newcommand{\CinfM}{C^{\infty}(M)}          % C^infty(M)
+\newcommand{\CinfN}{C^{\infty}(N)}          % C^infty(N)
+\newcommand{\grad}{\text{grad }}
+\newcommand{\doo}{\partial} 
+\newcommand{\ddxi}{\frac{\partial}{\partial x^i}}
+\newcommand{\ddxj}{\frac{\partial}{\partial x^j}}
+\newcommand{\ddxk}{\frac{\partial}{\partial x^k}}
+\newcommand{\ddxl}{\frac{\partial}{\partial x^l}}
+\newcommand{\ddyi}{\frac{\partial}{\partial y^i}}
+\newcommand{\ddyj}{\frac{\partial}{\partial y^j}}
+\newcommand{\ddyk}{\frac{\partial}{\partial y^k}}
+\newcommand{\ddyl}{\frac{\partial}{\partial y^l}}
+\newcommand{\ddt}{\frac{d}{dt}\Big|_{t=0}}
+\newcommand{\vectfield}{\mathfrak{X}}       % vector field
+
+%=======================================================
+
+\title{
+  Introduction to Riemannian Manifolds by John M. Lee
+  \\ \large{Penyelesaian Soal} }
+\author{Kelvin Lois}
+
+\date{5 April 2020}
+
+\begin{document} 
+\maketitle \tableofcontents 
+
+\begin{abstract}
+    Kumpulan beberapa penyelesaian soal pada buku \textit{Introduction to Riemannian Manifolds} karangan John M. Lee. Bagian teks yang berada di dalam kotak adalah latar belakang atau motivasi dari solusi dan dapat dilewati pembaca tanpa mempengaruhi pemahaman alur bukti.
+\end{abstract}
+\section{Metrik Riemann}
+
+\subsection{Soal Latihan}
+\begin{problem}[\textcolor{blue}{Problem 2-9}]
+Buktikan Proposisi 2.37 : Misalkan $(M,g)$ adalah manifold Riemann, $f \in \CinfM$, dan $\mathcal{R} \subseteq M$ adalah himpunan titik-titik regular dari $f$. Untuk setiap $c \in \er$,  himpunan $M_c = f^{-1}(c) \cap \mathcal{R}$, jika $M_c \neq \emptyset$, adalah suatu submanifold mulus berkodimensi-1 yang terembed di $M$, dan $\grad f$ normal terhadap $M_c$ dimana-mana.   
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 2-10}]
+Misalkan $(M,g)$ adalah manifold Riemann, $f \in \CinfM$, dan $X \in \vectfield(M)$ adalah medan vektor yang tidak nol dimana-mana. Buktikan bahwa $X= \grad f$ jika dan hanya jika $Xf \equiv |X|_g^2$ dan $X$ ortogonal terhadap semua himpunan tingkatan (\textit{level set}) dari $f$ pada semua titik regular dari $f$.
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+
+\end{document}
