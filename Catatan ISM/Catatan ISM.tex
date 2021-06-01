@@ -1,0 +1,1042 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[bahasai]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{tikz-cd}
+\usepackage[shortlabels]{enumitem}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{mathabx}
+\usepackage[margin=1in]{geometry}
+\usepackage{tcolorbox} % Membuat text di dalam box berwarna
+%\usepackage{geometry} %These two package 
+%\usepackage{marginnote} % intended to make a notes on the margin
+\usepackage{bbm}
+
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}
+\newtheorem{corollary}{Akibat}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem*{definition}{Definisi}
+\newtheorem*{problem}{Soal}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{\textbf{Catatan}}
+\newtheorem*{solution}{\textcolor{red}{Solusi}}
+
+
+% New Command : Notasi bilangan, ruang dll.
+\newcommand{\er}{\mathbb{R}}            % real number
+\newcommand{\C}{\mathbb{C}}             % complex number
+\newcommand{\Rn}{\mathbb{R}^n}          % n-Euclidean space
+\newcommand{\Rk}{\mathbb{R}^k}          % k-Euclidean Space
+\newcommand{\Rm}{\mathbb{R}^m}          % m-Euclidean space
+\newcommand{\Hreal}{\mathbb{H}}	        % Half real 
+\newcommand{\Hn}{\mathbb{H}^n}          % n-Half space
+\newcommand{\Hk}{\mathbb{H}^k}          % k-Half space
+\newcommand{\Hm}{\mathbb{H}^m}          % m-Half space
+\newcommand{\Q}{\mathbb{Q}}             % rational Q
+\newcommand{\Z}{\mathbb{Z}}             % Integer Z
+\newcommand{\Zn}{\mathbb{Z}^n}          % Z^n
+\newcommand{\Ssatu}{\mathbb{S}^1}       % S^1
+\newcommand{\Sdua}{\mathbb{S}^2}        % S^2
+\newcommand{\Stiga}{\mathbb{S}^3}       % S^3
+\newcommand{\satukuart}{\mathbbm{1}}    % kuarternion 1
+\newcommand{\ikuart}{\mathbbm{i}}       % kuarternion i
+\newcommand{\jkuart}{\mathbbm{j}}       % kuarternion j
+\newcommand{\kkuart}{\mathbbm{k}}       % kuarternion k
+\newcommand{\seperdua}{\frac{1}{2}}     % 1/2
+\renewcommand\qedsymbol{$\blacksquare$}
+
+% New command : Notasi Grup Lie
+\newcommand{\Mnr}{\text{M}(n,\mathbb{R})}   % M(n,R)
+\newcommand{\Mnc}{\text{M}(n,\mathbb{C})}   % M(n,C)
+\newcommand{\GL}{\text{GL}}                 % GL
+\newcommand{\GLnr}{\text{GL}(n,\mathbb{R})} % GL(n,R)
+\newcommand{\GLnc}{\text{GL}(n,\mathbb{C})} % GL(n,C)
+\newcommand{\SL}{\text{SL}}                 % SL
+\newcommand{\SLnr}{\text{SL}(n,\mathbb{R})} % SL(n,R)
+\newcommand{\SLnc}{\text{SL}(n,\mathbb{C})} % SL(n,C)
+\newcommand{\On}{\text{O}(n)}               % O(n)
+\newcommand{\Un}{\text{U}(n)}               % U(n)
+\newcommand{\SUn}{\text{SU}(n)}             % SU(n)
+\newcommand{\SOn}{\text{SO}(n)}             % SO(n)
+\newcommand{\rp}{\mathbb{RP}}               % RP
+\newcommand{\rpnr}{\mathbb{RP}^n}           % RP^n
+\newcommand{\Lie}{\text{Lie}}               % Lie
+\newcommand{\LieG}{\text{Lie}(G)}           % Lie(G)
+\newcommand{\LieH}{\text{Lie}(H)}               % Lie(H)
+
+% New Command : Notasi Pemetaan/fungsi
+\newcommand{\image}{\text{Im }}             % Peta
+\newcommand{\kernel}{\text{Ker }}           % Kernel
+\newcommand{\rank}{\text{rank }}            % rank
+\newcommand{\Id}{\text{Id}}                 % Pemetaan Identitas
+\newcommand{\pr}{\text{pr}}                 % Pemetaan proyeksi
+\newcommand\norm[1]{\left\lVert#1\right\rVert} % notasi norm
+\newcommand\metric[1]{\langle#1\rangle}     % notasi HKD
+
+
+% New Command : Notasi Smooth Manifold
+\newcommand{\Cinf}{C^{\inf}}            % space smth func 
+\newcommand{\CinfM}{C^{\infty}(M)}          % C^infty(M)
+\newcommand{\CinfN}{C^{\infty}(N)}          % C^infty(N)
+\newcommand{\grad}{\text{grad }}
+\newcommand{\doo}{\partial} 
+\newcommand{\ddxi}{\frac{\partial}{\partial x^i}}
+\newcommand{\ddxj}{\frac{\partial}{\partial x^j}}
+\newcommand{\ddxk}{\frac{\partial}{\partial x^k}}
+\newcommand{\ddxl}{\frac{\partial}{\partial x^l}}
+\newcommand{\ddyi}{\frac{\partial}{\partial y^i}}
+\newcommand{\ddyj}{\frac{\partial}{\partial y^j}}
+\newcommand{\ddyk}{\frac{\partial}{\partial y^k}}
+\newcommand{\ddyl}{\frac{\partial}{\partial y^l}}
+\newcommand{\ddt}{\frac{d}{dt}\Big|_{t=0}}
+\newcommand{\vectfield}{\mathfrak{X}}       % vector field
+
+%=======================================================
+
+\title{Introduction to Smooth Manifolds by John M. Lee \\
+  \large Penyelesaian Soal}
+\author{Kelvin Lois}
+
+\date{5 April 2020}
+
+\begin{document} 
+\maketitle \tableofcontents 
+
+\begin{abstract}
+    Kumpulan penyelesaian beberapa soal pada buku \textit{Introduction to Smooth Manifolds} karangan John M. Lee. Bagian teks yang berada di dalam kotak adalah latar belakang atau motivasi dari solusi dan dapat dilewati pembaca tanpa mempengaruhi pemahaman alur bukti.
+\end{abstract}
+
+\section{Vektor Singgung}
+\subsection{Soal Latihan}
+
+\begin{problem}[\textcolor{blue}{Problem 3-1}]
+Misalkan $M$ dan $N$ adalah manifold-manifold mulus berbatas ataupun tidak berbatas, dan $F : M \to N$ adalah pemetaan mulus. Tunjukan bahwa $dF_p : T_pM \to T_{F(p)}N$ adalah pemetaan nol untuk setiap $p \in M$ jika dan hanya jika $F$ konstan di setiap komponen dari $M$. 
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 3-2}]
+Buktikan Proposisi 3.14 (ruang singgung dari manifold produk).
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+
+
+\begin{problem}[\textcolor{blue}{Problem 3-3}]
+Buktikan bahwa jika $M$ dan $N$ adalah manifold-manifold mulus, maka $T(M \times N)$ diffeomorfik dengan $TM \times TN$.
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 3-4}]
+Tunjukan bahwa $T\mathbb{S}^1$ diffeomorfik dengan $\mathbb{S}^1 \times \mathbb{R}$.
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
+
+
+
+
+
+
+\section{Grup Lie}
+
+\subsection{Soal Latihan}
+\begin{problem}[\textcolor{blue}{Problem 7-1}]
+Tunjukan bahwa untuk sebarang Lie group $G$, perkalian $m : G \times G \to G$ adalah sebuah submersi mulus. [Petunjuk : Gunakan penampang lokal (\textit{local section}).]
+\end{problem}
+\begin{solution}
+Berdasarkan Teorema Penampang Lokal (\textit{Theorem 4.26}), kita cukup menunjukan bahwa setiap titik di $G \times G$ termuat di dalam peta dari suatu penampang lokal dari $m : G \times G \to G$. \newline
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+        Kita lihat dahulu sifat apa yang dimiliki suatu penampang lokal dari $m$.
+        Misalkan $\sigma : U \to G \times G$ adalah suatu penampang lokal dari $m$. Untuk suatu $g \in U$, misalkan $\sigma(g) = (g_1,g_2)$, sehingga 
+        $$
+        g = (m \circ \sigma) (g) = g_1g_2 \Rightarrow g_1=gg_2^{-1}.
+        $$
+        Jadi $g \mapsto (gg_2^{-1},g_2)$ oleh $\sigma$. Tetapi $\sigma$ belum tentu memetakan elemen $G$ yang lain dengan bentuk seperti di atas, karena $g_2$ pada peta $(gg^{-1}_2,g_2)$ bergantung pada $g$, yaitu $g_2= \text{pr}_2 \circ \sigma (g)$. Jadi bentuk umum penampang lokal $\sigma$ dari $m$ tidak diketahui. Tetapi yang menarik adalah untuk setiap $g_0 \in G$, pemetaan $\sigma_{g_0} : G \to G \times G$ yang didefinisikan sebagai $h \mapsto (hg_0^{-1},g_0)$ merupakan penampang (global) dari $m$. Peta dari penampang global yang berbentuk seperti ini mudah dikendalikan, karena kita dapat dengan bebas memilih $g_0$. Jadi investigasi kita terhadap penampang lokal dari $m$ menginspirasi konstruksi penampang lokal yang kita inginkan.
+    }%
+}\newline
+
+Untuk setiap $g_0 \in G$, pemetaan $\sigma_{g_0} : G \to G \times G$ yang didefinisikan sebagai $\sigma_{g_0}(g) = (gg_0^{-1},g_0)$ merupakan suatu penampang (global) mulus untuk $m : G \times G \to G$. Misalkan diberikan $(g_1,g_2) \in G\times G$, maka $\sigma_{g_2} (g_1g_2) =(g_1g_2g_2^{-1},g_2)=(g_1,g_2)$. I.e., $(g_1,g_2) \in \text{Im }\sigma_{g_2}$. Dengan demikian setiap titik di $G \times G$ termuat di dalam peta suatu penampang dari $m$. Jadi $m$ adalah submersi. $\blacksquare$
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 7-2}]
+Misalkan $G$ adalah grup Lie. 
+\begin{itemize}
+    \item [(a)] Misalkan $m : G \times G \to G$ adalah perkalian di $G$.  Dengan menggunakan Proposisi 3.14 untuk mengidentifikasi $T_{(e,e)}(G \times G)$ dengan $T_eG \oplus T_eG$, tunjukan bahwa differensial $dm_{(e,e)} : T_eG \oplus T_eG \to T_eG$ diberikan oleh 
+    $$
+    dm_{(e,e)}(X,Y) = X+Y.
+    $$
+    [Petunjuk : hitung $dm_{(e,e)}(X,0)$ dan $dm_{(e,e)}(0,Y)$ secara terpisah.]
+    
+    \item [(b)] Misalkan $i : G \to G$ menyatakan pemetaan invers di $G$. Tunjukan bahwa $di_e : T_eG \to T_eG$ diberikan oleh $di_e(X) = -X$.
+\end{itemize}
+\end{problem}
+
+\begin{solution}
+(a). Dari Proposisi 3.14 kita memiliki isomorfisma $\alpha : T_{(e,e)(G \times G)} \to T_eG \oplus T_eG$ yang diberikan oleh
+$$
+\alpha(v) = \Big(d(\pi_1)_{(e,e)}(v), d(\pi_2)_{(e,e)}(v) \Big),
+$$
+dengan $\pi_1, \pi_2 : G \times G \to G$ adalah proyeksi kanonik $\pi(g,h) = g, \,\pi_2(g,h) = h$. Misalkan $\mathtt{i}, \mathtt{j} : G \hookrightarrow G \times G$ adalah embeding $\mathtt{i}(g)=(g,e), \, \mathtt{j}(g)=(e,g)$. Maka invers dari $\alpha$ adalah $\beta : T_eG \oplus T_eG \to T_{(e,e)}(G \times G)$ yang diberikan oleh
+$$
+\beta(X,Y) = d\mathtt{i}_e(X) + d\mathtt{j}_e(Y).
+$$
+Notasi $dm_{(e,e)}$ yang diberikan di soal adalah komposisi dari $dm_{(e,e)} : T_{(e,e)}(G \times G) \to T_eG$ dengan isomorfisma $\beta$. Kita notasikan $\gamma  := dm_{(e,e)} \circ \beta $.
+$$
+\gamma : T_eG \oplus T_eG \xrightarrow{\beta}T_{(e,e)}(G\times G) \xrightarrow{dm_{(e,e)}} T_eG.
+$$ 
+Dengan notasi ini, yang harus kita tunjukan adalah $\gamma(X,Y) = X + Y$. Perhatikan bahwa $m \circ \mathtt{i} = \text{Id}_G$ dan $m \circ \mathtt{j} = \text{Id}_G$ sehingga
+\begin{align*}
+\gamma(X,Y) &= dm_{(e,e)} \circ \beta(X,Y) \\
+&= dm_{(e,e)} (d\mathtt{i}_e(X)+d\mathtt{j}_e(Y)) \\ &= dm_{(e,e)} (d\mathtt{i}_e(X)) + dm_{(e,e)} (d\mathtt{j}_e(Y)) \\
+&= d(m \circ \mathtt{i})_e(X) + d(m \circ \mathtt{j})_e(Y) \\
+&= X + Y.
+\end{align*}
+Untuk (b), kita manfaatkan hasil dari (a). Perhatikan pemetaan trivial $E : g \mapsto e \in G$. Kita dapat mendekomposisi $E$ sebagai $g \mapsto (g,g^{-1}) \mapsto gg^{-1}$. Definisikan $\mathtt{I}(g) := (g,g^{-1})$. Sehingga
+$$
+E : G  \xrightarrow{\mathtt{I}} G \times G \xrightarrow{m} G.
+$$
+Juga jelas bahwa $\pi_1 \circ \mathtt{I} = \text{Id}_G$ dan $\pi_2 \circ \mathtt{I} = i$. Karena differensial dari $E$ adalah pemetaan nol dan differensial dari $m$ diketahui, maka kita dapat mencari differensial dari $i$. Perhatikan diagram komutatif berikut.
+\[
+\begin{tikzcd}
+T_eG  \arrow[rightarrow]{r}{d\mathtt{I}_e} \arrow[swap]{dr}{\alpha \circ d\mathtt{I}_e} & T_{(e,e)}(G \times G) \arrow{r}{dm_{(e,e)}} \arrow[swap, shift right]{d}{\alpha} & T_eG \\
+&T_eG \oplus T_eG \arrow[swap]{u}{\beta} \arrow[swap, shift right]{ur}{\gamma}&
+\end{tikzcd}
+\]
+Jadi untuk sebarang $X \in TeG$,
+\begin{align*}
+    dE_e(X) &= ( dm_{(e,e)} \circ d\mathtt{I}_e ) (X)  \\
+    &= (dm_{(e,e)} \circ \text{Id} \circ d\mathtt{I} )(X) \\ 
+    &= (dm_{(e,e)} \circ \beta \circ \alpha \circ d\mathtt{I} )(X) \\
+    &= (dm_{(e,e)} \circ \beta ) \circ (\alpha \circ d\mathtt{I}_e) (X) \\
+    &= \gamma \circ \big( \alpha \circ d\mathtt{I}_e(X) \big) \\
+    &= \gamma \big( d\pi_1 \circ d\mathtt{I}_e (X), d\pi_2 \circ d\mathtt{I}_e (X) \big) \\
+    &= \gamma \big( d\text{Id}_G(X), di_e(X) \big) \\
+    &=  d\text{Id}_G(X) + di_e(X) \\
+    &=  X + di_e(X).
+\end{align*}
+Karena $dE_e=0$ maka $di_e(X) = -X$. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-3}]
+Definisi Lie group yang kita gunakan mensyaratkan bahwa pemetaan perkalian dan pemetaan invers adalah pemetaan mulus. Tunjukan bahwa kemulusan dari pemetaan invers adalah syarat berlebih : jika $G$ adalah manifold mulus dengan struktur grup sedemikian sehingga perkalian $m : G \times G \to G$ mulus, maka $G$ adalah grup Lie. [Petunjuk : tunjukan bahwa pemetaan $F : G \times G \to G \times G$ yang didefinisikan sebagai $F(g,h) = (g,gh)$ adalah diffeomorfisma lokal yang bijektif.]
+\end{problem}
+\begin{solution}
+Kita akan menunjukan bahwa bila $G$ manifold mulus dengan dengan asumsi seperti di atas, maka $i : G \to G$ mulus.\newline
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+       Idenya adalah menyatakan $i(g)=g^{-1}$ sebagai komposisi dari pemetaan-pemetaan mulus. Anda mungkin sudah menebak bahwa pemetaan $F(g,h) = (g,gh)$ adalah kunci dari strategi ini. Invers dari $F$ adalah $F^{-1}(g,x) = (g,g^{-1}x)$. Secara kasar, dekomposisi yang akan dibentuk adalah sebagai berikut :
+       $$
+       i : g \xmapsto{\iota} (g,e) \xmapsto{F^{-1}} (g,g^{-1}e) \xmapsto{pr_2} g^{-1},
+       $$
+       dengan $\iota : G \to G \times G$ adalah inklusi $g \mapsto (g,e)$ dan $pr_2 : G \times G \to G$ adalah projeksi $(g,h) \mapsto h$. Bila kita dapat menunjukan bahwa $F^{-1}$ mulus (setidaknya secara lokal) maka $i(g)=g^{-1}$ adalah pemetaan mulus.
+    }%
+}\newline
+
+Misalkan $F : G \times G \to G \times G$ adalah pemetaan $(g,h) \mapsto (g,gh)$. Mudah melihat bahwa $F$ bijektif. Untuk menunjukan bahwa $F$ adalah diffeomorfisma lokal, cukup ditunjukan bahwa untuk setiap $(g,h)\in G \times G$ pemetaan linear $dF_{(g,h)}$ bijektif. Misalkan $(g,h) \in G \times G$.  Dengan isomorfisma kanonik $\tau : T_{(g,h)}(G \times G) \to T_gG \oplus T_hG$ dan $\sigma : T_{(g,gh)}(G \times G) \to T_gG \oplus T_{gh}G$, tinjau komposisi pemetaan berikut
+$$
+T_gG \oplus T_hG \xrightarrow{\tau^{-1}}  T_{(g,h)}(G \times G) \xrightarrow{dF_{(g,h)}} T_{(g,gh)}(G \times G) \xrightarrow{\sigma} T_gG \oplus T_{gh}G.
+$$
+Misalkan $\mathtt{I} : G \to G \times G$ adalah iklusi $x \mapsto (x,h)$ dan $\mathtt{J}: G \to G \times G$ adalah inklusi $x \mapsto (g,x)$. Maka untuk sebarang $(v,w) \in T_g(G) \oplus T_hG$
+\begin{align*}
+    (\sigma \circ dF_{(g,h)} \circ \tau^{-1}) (v,w) &= (\sigma \circ dF_{(g,h)}) \big( d\mathtt{I}_g(v)+ d\mathtt{J}_h(w) \big)  \\
+    &= \sigma \big( d(F \circ \mathtt{I})_g(v) + d(F \circ \mathtt{J})_h(w) \big) \\
+    &= \sigma \circ d(F \circ \mathtt{I})_g(v) + \sigma \circ d(F \circ \mathtt{J})_h(w) \\
+    &= \Big( d(pr_1 \circ F \circ \mathtt{I})_g(v), d(pr_2 \circ F \circ \mathtt{I})_g(v) \Big) + \\
+    &\phantom{=.} \Big( d(pr_1 \circ F \circ \mathtt{J})_h(w), d(pr_2 \circ F \circ \mathtt{J})_h(w) \Big).
+\end{align*}
+Karena $pr_1 \circ F \circ \mathtt{I}(x) = x$, $pr_2 \circ F \circ \mathtt{I}(x) = xh = R_h(x)$ dan $pr_1 \circ F \circ J(x) = g$, $pr_2 \circ F \circ \mathtt{J}(x) = gx = L_g(x)$, maka
+$$
+ (\sigma \circ dF_{(g,h)} \circ \tau^{-1}) (v,w) =  \big( v , d(R_h)_g(v) +  d(L_g)_h(w) \big).
+$$
+Kita tahu bahwa setiap translasi kiri dan kanan adalah diffeomorfisma. Dengan fakta ini mudah menunjukan bahwa pemetaan di atas adalah satu-satu dan pada. Sehingga $dF_{(g,h)}$ adalah isomorfisma. Dari Teorema Fungsi Invers, fungsi bijektif $F$ adalah diffeomorfisma lokal. 
+
+Sekarang akan ditunjukan bahwa $i(g) = g^{-1}$ adalah pemetaan mulus. Misalkan $g \in G$ sebarang. Pilih lingkungan $U \ni g$ dan  $V \ni e $ sehingga $F^{-1}|_{U \times V} $ adalah diffeomorfisma ke $F^{-1}(U \times V)$. Misalkan $\iota : G \to G \times G$ adalah pemetaan inklusi $g \mapsto (g,e)$. Maka  $i|_U = (pr_2 \circ F^{-1} \circ \iota)|_U$ merupakan komposisi dari pemetaan-pemetaan mulus. Jadi $i_U$ mulus. Karena $i$ mulus secara lokal di setiap titik di $G$, maka $i : G \to G$ mulus. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-4}]
+Misalkan $\det : \text{GL}(n,\er) \to \er$ adalah fungsi determinan. Gunakan Akibat 3.25 untuk menghitung differensial dari $\det$, sebagai berikut.
+\begin{itemize}
+    \item [(a)] Untuk sebarang $A \in \text{M}(, \er)$, tunjukan bahwa
+    $$
+    \frac{d}{dt}\Big|_{t=0} \det (I_n + tA) = \text{tr} A,
+    $$
+    dengan $\text{tr}(A^i_j) = \sum_i A^i_i$ adalah trace dari $A$. [Petunjuk : persamaan (B.3) mengekspresikan $\det (I_n +tA)$ sebagai sebuah polinom dalam $t$. Apa suku linearnya ?]
+    
+    \item [(b)] Untuk $X \in \text{GL}(n,\er)$ dan $B \in T_X \text{GL}(n,\er) \cong \text{M}(n,\er)$, tunjukan bahwa 
+    $$
+    d(\det)_X(B) = (\det X)  \text{tr} (X^{-1}B).
+    $$
+    [Petunjuk : $\det(X+tB) = \det(X) \det(I_n+tX^{-1}B)$.]
+\end{itemize}
+\end{problem}
+
+\begin{solution}
+(a) Dari persamaan B.3, determinan dari sebarang matriks $C=(C^i_j) \in \text{M}(n,\er)$ adalah
+$$
+\det C  = \sum_{\sigma \in S_{\sigma}} (\text{sgn }\sigma) A^{\sigma(1)}_1 \cdots A^{\sigma(n)}_n,
+$$
+dengan $S_{\sigma}$ adalah himpunan permutasi dari $\{ 1,\dots,n\}$. Sehingga determinan matriks $I_n +tA$ adalah
+\begin{align*}
+    \det (I_n +tA) &= \sum_{\sigma \in S_{\sigma}} (\text{sgn }\sigma) (\delta^{\sigma(1)}_1+tA^{\sigma(1)}_1) \cdots (\delta^{\sigma(n)}_n+tA^{\sigma(n)}_n) \\
+    &= (1+tA^1_1) \cdots (1+tA^n_n) + E(t),
+\end{align*}
+dimana $E(t)$ adalah suku sisa. Dengan sedikit renungan kita menyadari bahwa $\frac{d}{dt}\big|_{t=0} E(t) = 0$.
+Sehingga
+\begin{align*}
+    \frac{d}{dt}\Big|_{t=0} \det (I_n +tA) &= \frac{d}{dt}\Big|_{t=0} (1+tA^1_1) \cdots (1+tA^n_n) = \text{tr }A.
+\end{align*}
+(b) Dari kekontinuan fungsi determinan, ada $\epsilon>0$ cukup kecil sehingga $\gamma(t) := X+tB$ adalah suatu kurva $\gamma : (-\epsilon,\epsilon) \to \text{GL}(n,\er)$. Kurva $\gamma(t)$ adalah kurva mulus dengan $\gamma(0) = X$ dan $\gamma'(0)=B$. Sehingga $d(\det)_X(B) = d(\det)_X(\gamma'(0)) = \frac{d}{dt}\big|_{t=0} \det \circ \gamma (t) $. Jadi
+$$
+d(\det)_X(B) = \frac{d}{dt}\Big|_{t=0} \det (X+tB) = \det(X) \frac{d}{dt}\Big|_{t=0} \det(I_n + tX^{-1}B) = \det(X) \text{tr}(X^{-1}B). \quad \blacksquare
+$$
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 7-6}]
+Misalkan $G$ adalah grup Lie dan $U$ adalah sebarang lingkungan dari identitas. Tunjukan bahwa ada sebuah lingkungan $V$ dari identitas  yang memenuhi $V \subseteq U$ dan $gh^{-1} \in U$ untuk setiap $g,h \in V$. 
+\end{problem}
+\begin{solution}
+Misalkan $F : G \times G \to G$ adalah fungsi mulus $F(g,h)=gh^{-1}$ dan $U$ adalah suatu lingkungan dari identitas $e \in G$. Dari kekontinuan $F$, prapeta $F^{-1}(U) \subseteq G \times G$ adalah himpunan buka yang memuat $(e,e)$. Pilih lingkungan $V_1$ dan $V_2$ dari $e$ sehingga $V_1 \times V_2 \subseteq F^{-1}(U)$. Notasikan $V$ sebagai 
+$$
+(V_1 \cap V_2) \cap U.
+$$
+Sehingga $V \times V \subseteq F^{-1}(U)$ berarti $F(V \times V) \subseteq U$. Dengan kata lain $\forall g,h \in V$, kita punya $F(g,h)=gh^{-1} \in U$. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-7}]
+Buktikan Proposisi 7.15 : Misalkan $G$ adalah grup Lie dan $G_0$ adalah komponen identitasnya. Maka $G_0$ adalah subgrup normal dari $G$, dan satu-satunya subgrup buka terhubung. Setiap komponen terhubung dari $G$ diffeomorfik dengan $G_0$.
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-9}]
+Tunjukan bahwa formula 
+$$
+A \cdot [x] = [Ax],
+$$
+mendefinisikan aksi kiri transitif mulus dari $\text{GL}(n+1,\er)$ pada $\er \mathbb{P}^n$.
+\end{problem}
+\begin{solution}
+Misalkan $\theta : \GL(n+1,\er) \times \rp^n \to \rp^n$ menyatakan pengaitan $\theta(A,[x]) \equiv  A \cdot [x] = [Ax]$. Pengaitan ini adalah pemetaan karena formula $A \cdot [x] = [Ax]$ tidak bergantung terhadap representasi dari $[x]$ : untuk $(A,[x]) = (B,[y])$ berarti $A=B$ dan $[x] = [y] \in \rp^n$ (i.e. $x=\lambda y$ dengan $\lambda \in \er\smallsetminus \{0\}$), sehingga
+\begin{align*}
+    \theta (A,[x]) &= [Ax] = [A(\lambda y)] = [\lambda Ay] = [Ay] = [By] = \theta(B,[y]).
+\end{align*}
+Pemetaan $\theta$ adalah aksi dari $\GL(n+1,\er)$ pada $\rp^n$ karena $\forall A,B \in \GL(n+1,\er)$, $[x] \in \rp^n$ berlaku $I_{n+1} \cdot [x] = [I_{n+1}x] = [x]$ dan $A \cdot (B \cdot [x]) = A \cdot [Bx] = [ABx] = AB \cdot [x]$. Aksi ini transitif karena setiap vektor di $\Rn\smallsetminus \{0\}$ dapat dipetakan ke vektor tak-nol manapun di $\Rn$ dengan pemilihan transformasi linear bijektif yang sesuai. Kemulusan aksi di atas dapat dengan mudah diperiksa secara lokal. $\blacksquare$  
+
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-12}] Gunakan teorema rank ekivarian untuk memberikan bukti lain dari Teorema 7.5 dengan menunjukan bahwa setiap homomorfisma grup Lie $F : G \to H$ ekivarian terhadap aksi-$G$ mulus yang cocok pada $G$ dan $H$.
+\end{problem}
+\begin{solution}
+Kita tahu bahwa $\forall g_1,g_2 \in G$, berlaku $F(g_1 g_2) = F(g_1)F(g_2)$. Kita ingin mencari aksi transitif $\theta : G \times G \to G$ dan aksi $\varphi : G \times H \to H$ yang memenuhi 
+$$
+F \circ \theta_{g_0} = \varphi_{g_0} \circ F, \qquad \forall g_0 \in G. 
+$$
+Dari sifat homomorfisma $F$, terlihat bahwa aksi-aksi yang diinginkan adalah
+$$
+\theta:=m_G \quad \text{dan} \quad \varphi:=m_H \circ (F \times \text{Id}_H),
+$$
+dengan $m_G$ dan $m_H$ adalah perkalian pada $G$ dan $H$ beturut-turut. Mudah memeriksa bahwa $\theta$ dan $\varphi$ adalah aksi-$G$ pada $G$ dan $H$. Dari definisi, aksi $\theta$ adalah aksi mulus dan transitif dan $\varphi$ adalah aksi mulus karena merupakan komposisi fungsi-sungsi mulus. Karena $F$ ekivarian dengan $\theta$ dan $\varphi$, maka dari Teorema Rank Ekivarian, rank $F$ konstan. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-13}] 
+Untuk setiap $n \geq 1$, buktikan bahwa $\text{U}(n)$ adalah subgrup Lie berdimensi $n^2$ dari $\GL(n,\mathbb{C})$ yang terembed secara proper.
+\end{problem}
+\begin{solution}
+Menurut definisi, $\Un = \{ A \in \GLnc \mid A^*A = I_n \}$. Definisikan pemetaan mulus $\Phi : \GLnc \to \Mnc$ sebagai $\Phi(A) = A^*A$. Maka $\Un = \Phi^{-1}(I_n)$. Jadi $\Un \subseteq \GLnc$ adalah submanifold yang terembed secara proper apabila rank $\Phi$ konstan. Untuk menunjukan ini, kita cukup tunjukan bahwa $\Phi$ adalah pemetaan ekivarian.
+
+Misalkan $\theta : \GLnc \times \GLnc \to \GLnc$ dan $\varphi : \Mnc \times \GLnc \to \Mnc$ adalah pemetaan yang didefinisikan sebagai
+$$
+\theta(A,B) \equiv \theta_B(A) =  AB,\quad \varphi(X,B) \equiv \varphi_B(X) = B^*XB
+$$
+untuk sebarang $A,B \in \GLnc$ dan $X \in \Mnc$. Mudah melihat bahwa $\theta$ adalah aksi kanan mulus yang transitif dan $\varphi$ adalah aksi kanan mulus. Pemetaan $\Phi$ ekivarian terhadap aksi-aksi $\theta$ dan $\varphi$ karena untuk sebarang $A,B \in \GLnc$,
+\begin{align*}
+    \Phi \circ \theta_A (B) &= \Phi(BA) = (BA)^*(BA) = A^*(B^*B)A = \varphi_A(B^*B) = \varphi_A \circ \Phi (B).
+\end{align*}
+Menurut Teorema Rank Konstan, $\Phi^{-1}(I_n) = \Un$ adalah submanifold dari $\GLnc$ yang terembed secara proper berdimensi $\text{dim}(\GLnc) - \rank \Phi = 2n^2 - \rank \Phi$. Karena rank $\Phi$ konstan kita cukup mencari rank $d\Phi_{I_n} : T_{I_n}\GLnc \to T_{I_n}\Mnc$. 
+
+Untuk sebarang $A \in \Mnc = T_{I_n}\GLnc$, dapat dipilih kurva $\gamma(t):=I_n + tA$ di $\GLnc$ untuk $t \in (-\epsilon,\epsilon)$ dengan $\epsilon$ cukup kecil, sehingga
+$$
+d\Phi_{I_n}(A) = \frac{d}{dt}\Big|_{t=0} \Phi (I_n + tA) = \frac{d}{dt}\Big|_{t=0} (I_n+tA)^* (I_n+tA) = A^*+A.
+$$
+Dengan demikian, $\image d\Phi_{I_n} \subseteq \text{H}:=\{ B \in \Mnc \mid B^*=B \}$. Tetapi untuk sebarang $B \in H$, $d\Phi_{I_n}(\frac{1}{2}B) = (B^*+B)/2 = B$. Sehingga nyatanya peta dari $d\Phi_{I_n}$ adalah subruang linear matriks-matriks Hermitian $\text{H}$. Dimensi $\text{H}$ adalah
+$$
+n + 2(1+2+\cdots+n-1) = n^2.
+$$
+Jadi $\dim \Un = 2n^2 - \rank d\Phi_{I_n} = 2n^2- \dim \text{H} = n^2$. $\blacksquare$
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 7-14}] 
+Untuk setiap $n\geq 1$, buktikan bahwa $\text{SU}(n)$ adalah subgrup Lie berdimensi $(n^2-1)$ dari $\Un$ yang terembed secara proper.
+\end{problem}
+\begin{solution}
+Fungsi determinan $\det : \GLnc \to \C^*$ adalah homomorfisma grup Lie. Karena $\Un \subseteq \GLnc$ dan $\Ssatu \subseteq \C^*$ adalah Lie subgroup, maka fungsi restriksi
+$$
+D\equiv \det|_{\Un} : \Un \to \Ssatu,
+$$
+juga merupakan fungsi mulus. Lebih jauh $D$ juga homomorfisma grup Lie. Sehingga $\rank D$ konstan. Fungsi $D$ surjektif karena untuk sebarang $z\in \Ssatu$, determinan matriks $Z=\text{diag}(z,1,\cdots,1) \in \Un$ adalah $z$. Dari Teorema Rank Global, $D$ adalah submersi. Sehingga 
+$$
+\SUn = \Un \cap \SLnc = D^{-1}(1),
+$$
+adalah submanifold yang terembed secara proper di $\Un$ berdimensi $\dim \Un - 1 =n^2 - \rank D = n^2-1$. Karena $\SUn \subseteq \Un$ juga merupakan subgrup, maka $\SUn$ adalah subgrup Lie. $\blacksquare$
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 7-15}] 
+Tunjukan bahwa $\text{SO}(2), \text{U}(1)$ dan $\mathbb{S}^1$ semuanya adalah grup Lie yang isomorfik.
+\end{problem}
+\begin{solution}
+Jelas bahwa $\text{U}(1) = \Ssatu$. Definisikan pemetaan $R : \Ssatu \to \text{SO}(2)$ sebagai
+$$
+R(z) = \begin{pmatrix}
+Re(z) & Im(z) \\
+-Im(z) & Re(z)
+\end{pmatrix}.
+$$
+Dengan koordinat lokal $\Ssatu$, mudah melihat bahwa pemetaan ini adalah isomorfisma grup Lie. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-16}] 
+Buktikan bahwa $\text{SU}(2)$ diffeomorfik dengan $\mathbb{S}^3$.
+\end{problem}
+\begin{solution}
+Dari definisi, $\text{SU}(2) = \text{U}(2) \cap \text{SL}(2,\C)$. Dapat diperlihatkan bahwa dari definisi di atas, i.e. $A \in \text{SU}(2)$ j.h.j. $A^*A=I$ dan $\det A=1$, kita peroleh
+$$
+\text{SU}(2) = 
+    \begin{Bmatrix}
+        \begin{pmatrix} 
+        a & -\Bar{b} \\
+        b & \Bar{a} 
+        \end{pmatrix} 
+        \Big| \, a,b \in \C \text{ dan } |a|^2+|b|^2 = 1 
+    \end{Bmatrix}.
+$$
+Misalkan $(x,y,u,v)$ adalah koordinat standar untuk $\er^4$, maka definisikan pemetaan mulus $f : \er^4 \to \text{M}(2,\C)$ sebagai 
+$$
+f(x,y,u,v) = \begin{pmatrix} x+iy & -(u-iv) \\ u+iv & x-iy \end{pmatrix}.
+$$
+Karena $\mathbb{S}^3 := \{(x,y,u,v) \in \er^4 \mid x^2+y^2+u^2+v^2=1 \}$ adalah submanifold terembed, maka $f|_{\mathbb{S}^3}$ mulus dan $f(\mathbb{S}^3) = \text{SU}(2)$. Mudah melihat bahwa $f|_{\mathbb{S}^3} : \mathbb{S}^3 \to \text{SU}(2)$ adalah diffeomorfisma. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-17}] 
+Tentukan grup Lie mana saja yang kompak dari grup-grup Lie berikut :
+$$
+\GLnr,\,  \text{SL}(n,\er), \, \GL(n,\mathbb{C}), \, \text{SL}(n,\mathbb{C})\, , \text{U}(n), \, \text{SU}(n).
+$$
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-18}] 
+Buktikan Teorema 7.35 (\textbf{karakterisasi hasil kali semi langsung}) :
+Misalkan $G$ adalah grup Lie, dan $N,H \subseteq G$ adalah subgrup-subgrup Lie tutup dari $G$ dimana $N$ normal, $N \cap H = \{e\}$ dan $NH = G$. Maka pemetaan $(n,h) \mapsto nh$ adalah isomorfisma grup Lie antara $N \rtimes_{\theta} H$ dan $G$, dimana $\theta : H \times N \to N$ adalah aksi oleh konjugasi $\theta_h(n) = hnh^{-1}$.
+\end{problem}
+\begin{solution}
+Misalkan $N,H \subseteq G$ adalah subgrup-subgrup Lie tutup yang memenuhi hipotesis di atas, dan misalkan $m: G \times G \to G$ dan $i : G \to G$ adalah pemetaan perkalian dan invers pada grup Lie $G$ berturut-turut. Karena $N$ normal maka $hnh^{-1} \in N$ untuk sebarang $(h,n)\in H \times N$. Sehingga pemetaan $\theta : H \times N \to N$ terdefinisi. Pemetaan $\theta$ dapat didekomposisi sebagai 
+$$
+(h,n) \mapsto (hn,h^{-1}) \mapsto hnh^{-1}.
+$$ 
+Karena $H$ dan $N$ masing-masing adalah submanifold terembed tutup di $G$ maka tiap pemetaan di atas mulus. Sehingga $\theta$ juga mulus. Mudah memeriksa bahwa $\theta$ adalah aksi kiri dari $H$ ke $N$ dan untuk setiap $h \in H$, $\theta_h$ adalah automorfisma di $N$. Dengan demikian $\theta$ adalah aksi kiri mulus oleh automorfisma dan $N \rtimes_{\theta} H $ terdefinisi.
+
+Pemetaan $F : N \rtimes_{\theta} H \to G $ yang didefinisikan sebagai $F(n,h)=nh$ adalah pemetaan mulus karena $F$ hanyalah restriksi dari perkalian $m : G \times G \to G$ ke submanifold terembed $N \times H \subseteq G \times G$. Pemetaan $F$ adalah homomorfisma grup Lie karena untuk sebarang $(n,h),(n',h') \in N \rtimes_{\theta} H$,
+$$
+F\Big( (n,h)(n',h') \Big) = F\big(n\theta_{h}(n'),hh'\big) = F(nhn'h^{-1},hh') = nhn'h' = F(n,h)F(n',h').
+$$
+Dengan hipotesis $NH = G$ dan $N \cap H = \{e\}$, mudah menunjukan bahwa $F$ bijektif. Dengan demikian $F$ adalah isomorfima grup Lie. $\blacksquare$
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 7-19}] 
+Misalkan $G,N$ dan $H$ adalah grup-grup Lie. Buktikan bahwa $G$ isomorfik dengan suatu hasil kali semi langsung $N \rtimes H$ jika dan hanya jika ada homorfisma grup Lie $\varphi : G \to H$ dan $\psi : H \to G$ sehingga $\varphi \circ \psi = \text{Id}_H$ dan $\kernel \varphi \cong N$.
+\end{problem}
+\begin{solution}
+Misalkan $G \cong N \rtimes H$ lewat isomorfisma $F : G \to N \rtimes H$. Bila ada homomorfisma grup Lie $\varphi : G \to H$ dan $\psi : H \to G$ sehingga $\varphi \circ \psi =\Id_H$ maka $\varphi$ adalah pemetaan pada dan $\psi$ injektif. Pemetaan pada yang dapat dibangun dari $G$ ke $H$ yang natural adalah
+$$
+G \xrightarrow{F} N \rtimes H \xrightarrow{\pr_2} H,
+$$
+dengan $\pr_2 (n,h) = h$. Sedangkan pemetaan injektif $H \to G$ yang natural adalah
+$$
+H \xrightarrow{\iota_H} N \rtimes H \xrightarrow{F^{-1}} G
+$$
+dengan $\iota_H(h) = (e,H)$. Akan ditunjukan bahwa kedua pemetaan diatas adalah homomorfisma grup Lie yang diinginkan. Definisikan $\varphi := \pr_2 \circ F$ dan $\psi:=F^{-1} \circ \iota_H$. Jelas bahwa keduanya adalah homomorfisma grup Lie yang memenuhi $\varphi \circ \psi = \Id_H$. Dari Proposisi 7.33, $N \cong N \times \{e\}$. Sehingga untuk menunjukan $\kernel \varphi \cong N$ cukup ditunjukan $\kernel \varphi \cong N \times \{e\}$. Untuk sebarang $g \in \kernel \varphi$ berarti $\varphi(g) = \pr_2 \circ F(g) = \pr_2(n,h) = h = e$. Maka $F(g) = (n,e)$. Jadi $F(\kernel \varphi) \subseteq N \times \{e\}$. Sebaliknya, bila $g \in F^{-1}(N \times \{e\})$ maka $\varphi(g) = \pr_2 \circ F(g) = \pr_2(n,e) = e$. I.e., $\kernel \varphi \supseteq F^{-1}(N \times \{e\})$. Karena $F$ isomorfisma grup Lie maka $\kernel \varphi \cong N \times \{e\}$.
+
+Untuk konversnya, misalkan ada isomorfisma grup Lie $\varphi : G \to H$ dan $\varphi : H \to G$ sehingga $\varphi \circ \psi = \Id_H$ dan $\kernel \varphi \cong N$. Kita ingin menunjukan bahwa $G \cong N \rtimes H$. Kita tahu bahwa $\varphi$ surjektif dan $\psi$ injektif, jadi $\image \psi,\kernel \varphi \subseteq G$ adalah subgrup Lie tutup dari $G$. Kita tunjukan dahulu bahwa $G \cong \kernel \varphi \rtimes \image \psi$ dengan bantuan Teorema 7.35. Subgrup $\kernel \varphi$ normal karena : untuk sebarang $g \in G$ dan $a \in \kernel \varphi$,
+$$
+\varphi(gag^{-1}) = \varphi(g)\varphi(a) \varphi(g^{-1}) = \varphi(gg^{-1}) = e \implies g(\kernel \varphi) g^{-1} \subseteq \kernel \varphi,
+$$
+dan $a = g(g^{-1}ag)g^{-1} \implies g(\kernel \varphi) g^{-1} \supseteq \kernel \varphi$. Misalkan $g \in \kernel \varphi \cap \image \psi$, maka $e = \varphi(g) = \varphi (\psi(h)) = \Id_H(h) = h$. Jadi $g = \psi(h) = e$. Dengan demikian $\kernel \varphi \cap \image \psi = \{e\}$. Sekarang akan ditunjukan bahwa $(\kernel \varphi)(\image \psi) = G$. Jelas bahwa $(\kernel \varphi)(\image \psi) \subseteq G$. Misalkan $g \in G$. Bila $h=\varphi(g)$, maka $g$ dapat ditulis sebagai $g = \psi(h)\big(\psi(h)^{-1}g \big)$. Elemen $\psi(h)^{-1}g \in \kernel \varphi$ karena $\varphi \big( \psi(h)^{-1} g \big) = \varphi \big(\psi(h^{-1})\big) \varphi(g) = h^{-1} h = e$. Jadi $(\kernel \varphi)(\image \psi) = G$. Sehingga dari Teorema 7.35, $$
+G \cong \kernel \varphi \rtimes_{\theta} \image \psi,
+$$ 
+dengan $\theta : \image \psi \times \kernel \varphi \to \kernel \varphi$ adalah aksi kiri mulus oleh konjugasi $\theta_{b}(a) = bab^{-1}$. Sekarang akan ditunjukan bahwa $\kernel \varphi \rtimes_{\theta} \image \psi \cong N \rtimes H$. Kita tahu bahwa $N \cong \kernel \varphi$ dan $H \cong \image \psi$. Misalkan $\imath : H \to \image \psi$ dan $\jmath : N \to \kernel \varphi$ adalah isomorfisma. Kita ingin mencari aksi kiri oleh automorfisma $\hat{\theta} : H \times N \to N$ sehingga 
+$$
+N \rtimes_{\hat{\theta}} H \cong \kernel \varphi \rtimes_{\theta} \image \psi.
+$$
+Konstruksi natural yang mungkin adalah
+$$
+\hat{\theta} : H \times N \xrightarrow{\imath \times \jmath} \image \psi \times \kernel \varphi \xrightarrow{\theta} \kernel \varphi \xrightarrow{\jmath^{-1}} N. 
+$$
+Pemetaan $\hat{\theta}$ adalah pemetaan mulus yang memenuhi : untuk sebarang $h_1,h_2 \in H$ dan $n \in N$,
+\begin{align*}
+    \hat{\theta}_{h_2} \circ \hat{\theta}_{h_1} (n) &= \hat{\theta}_{h_2} \Big( \jmath^{-1} \circ \theta\big(\imath(h_1),\jmath(n) \big) \Big) \\
+    &= \hat{\theta}_{h_2} \Big( \jmath^{-1} \circ \theta_{\imath(h_1)}(\jmath(n)) \Big) \\
+    &= \jmath^{-1} \circ \theta_{\imath(h_2)} \Big( \jmath \circ \jmath^{-1} \circ \theta_{\imath(h_1)}(\jmath(n)) \Big) \\
+    &= \jmath^{-1} \circ \theta_{\imath(h_2)} \circ \theta_{\imath(h_1)} (\jmath(n)) \\
+    &=\jmath^{-1} \circ  \theta_{\imath(h_2h_1)} (\jmath(n)) \\
+    &=\jmath^{-1} \circ \theta \Big( \imath(h_2h_1), \jmath(n) \Big) \\
+    &= \hat{\theta}_{h_2h_1} (n),
+\end{align*}
+dan untuk sebarang $n \in N$, 
+$$
+\hat{\theta}_e(n) = \jmath^{-1} \circ \theta_{\imath(e)} (\jmath(n)) = \jmath^{-1} \circ \jmath(n) = n.
+$$
+Untuk setiap $h \in H$, $\hat{\theta}_h = \jmath^{-1} \circ \theta_{\imath(h)} \circ \jmath$ adalah automorfisma grup. Dengan demikian $\hat{\theta}$ adalah aksi kiri mulus oleh automorfisma. Sekarang akan dibuktikan bahwa $\kappa \equiv \jmath \times \imath : N \rtimes_{\hat{\theta}} H \to \kernel \varphi \rtimes_{\theta} \image \psi$ adalah isomorfisma grup Lie. Jelas pemetaan $(\jmath \times \imath) (n,h) = (\jmath(n), \imath(h))$ mulus dan bijektif. Pemetaan $\kappa$ adalah homomorfisma grup karena : untuk sebarang $(n,h),(n',h') \in N \rtimes_{\hat{\theta}} H $ berlaku 
+\begin{align*}
+    \kappa \big( (n,h)(n',h') \big) &= (\jmath \times \imath) \big( n\hat{\theta}_{h}(n'), hh' \big) \\
+    &= \Big( \jmath\big(n\hat{\theta}_h(n')\big) , \imath(hh') \Big) \\
+    &=\Big( \jmath(n) \jmath\big( \hat{\theta}_h (n')\big), \imath(h)\imath(h') \Big) \\
+    &= \Big( \jmath(n) \theta\big( \imath(h), \jmath(n')\big), \imath(h) \imath(h') \Big)\\
+    &=\Big( \jmath(n) \theta_{\imath(h)}\big(\jmath(n')\big), \imath(h)\imath(h') \Big) \\
+    &= \big(\jmath(n),\imath(h)\big) \big( \jmath(n'),\imath(h') \big) \\
+    &= \kappa(n,h) \, \kappa(n',h').
+\end{align*}
+Jadi $\kappa :  N \rtimes_{\hat{\theta}} H \to \kernel \varphi \rtimes_{\theta} \image \psi$ adalah isomorfisma grup Lie. Dengan demikian $G \cong  N \rtimes_{\hat{\theta}} H$. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-20}] 
+Buktikan bahwa grup-grup Lie dibawah ini isomorfik dengan hasil kali semi langsung yang ditunjukan. [Petunjuk : Gunakan hasil pada Problem 7-19.]
+\begin{enumerate}
+    \item [(a)] $\On \cong \SOn \rtimes \text{O}(1)$.
+    \item [(b)] $\Un \cong \SUn \rtimes \text{U}(1)$.
+    \item [(c)] $\GLnr \cong \SLnr \rtimes \er^*$.
+    \item [(d)] $\GLnc \cong \SLnc \rtimes \C^*$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+Untuk setiap subsoal $(a)-(d)$, kita pilih $\varphi(A):= \det A$ dan $\psi(z):=\text{diag}(z,1,\cdots,1)$. Untuk setiap subsoal $\varphi$ dan $\psi$ adalah homomorfisma grup Lie dengan $ \varphi \circ \psi = \Id$. Hubungan isomorfisma adalah akibat dari hasil Problem 7-19. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-21}]
+Buktikan bahwa grup-grup di Problem 7-20 isomorfik dengan hasil kali langsung dari grup-grup yang bersangkutan pada kasus $(a)$ dan $(c)$ jika dan hanya jika $n$ ganjil, dan pada kasus $(b)$ dan $(d)$ jika dan hanya jika $n = 1$.
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 7-22}]
+Misalkan $\Hreal = \C \times \C$ (dipandang sebagai ruang vektor atas $\er$), dan definisikan hasil kali bilinear $\Hreal \times \Hreal \to \Hreal$ sebagai 
+$$
+(a,b)(c,d)  = (ac-d\Bar{b},\Bar{a}d+cb), \quad a,b,c,d \in \C.
+$$
+Dengan hasil kali ini, $\Hreal$ adalah sebuah aljabar atas $\er$ berdimensi $4$, disebut aljabar $\textbf{kuarternion}$ ($\textit{quarternions}$). Untuk setiap $p=(a,b) \in \Hreal$, definisikan $p^* = (\Bar{a},-b)$. Basis dari $\Hreal$ adalah $(\satukuart,\ikuart,\jkuart,\kkuart)$ dengan 
+$$
+\satukuart =(1,0), \quad \ikuart=(i,0), \quad \jkuart=(0,1), \quad \kkuart=(0,-i).
+$$
+Dapat dengan mudah diperiksa bahwa basis ini memenuhi
+\begin{align*}
+    &\ikuart^2 = \jkuart^2=\kkuart^2 = -\satukuart, \quad \satukuart q = q \satukuart = q \qquad \ \  \text{untuk semua }q \in \Hreal, \\
+    &\ikuart\jkuart = -\jkuart\ikuart = \kkuart, \qquad\quad\; \jkuart \kkuart = -\kkuart \jkuart = \ikuart, \qquad \kkuart\ikuart = -\ikuart\kkuart = \jkuart, \\
+    &\satukuart^*=\satukuart, \qquad \qquad \qquad \ikuart^*=-\ikuart, \qquad \qquad \ \jkuart^*=-\jkuart, \qquad \qquad \kkuart^*=-\kkuart.
+\end{align*}
+Sebuah kuarternion $p$ dikatakan $\textit{real}$ jika $p^*=p$, dan $\textit{imajiner}$ jika $p^*=-p$. Kuarternion-kuarternion real dapat diidentifikasikan dengan bilangan real lewat korespondensi $x \leftrightarrow x\satukuart$. 
+\begin{itemize}
+    \item [(a)] Tunjukan bahwa perkalian antar kuarternion yang didefinisikan di atas asosiatif tetapi tidak komutatif. 
+    \item [(b)] Tunjukan bahwa $(pq)^* = q^*p^*$ untuk semua $p,q \in \Hreal$.
+    \item [(c)] Tunjukan bahwa $\langle p,q \rangle = \frac{1}{2}(p^*q+q^*p)$ adalah suatu hasil kali dalam pada $\Hreal$, dengan norma dihasilkan memenuhi $|pq| = |p|\,|q|$.
+    \item [(d)] Tunjukan bahwa setiap kuarternion taknol memiliki inverse perkalian dua sisi yang diberikan sebagai $p^{-1} = |p|^{-2} \,p^*$. 
+    \item [(e)] Tunjukan bahwa himpunan semua kuarternion taknol $\Hreal^*$ adalah suatu grup Lie terhadap perkalian kuarternion yang didefinisikan di atas.
+\end{itemize}
+\end{problem}
+\begin{solution}
+Bukti rutin. $\blacksquare$
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 7-23}]
+Misalkan $\Hreal^*$ adalah grup Lie dari kuarternion-kuarternion taknol (Soal 7-22), dan $\mathcal{S}\subseteq \Hreal^*$ adalah himpunan semua kuarternion-kuarternion satuan. Tunjukan bahwa $\mathcal{S}$ adalah subgrup Lie dari $\Hreal^*$ yang terembed secara proper, isomorfik dengan $\text{SU}(2)$. 
+\end{problem}
+\begin{solution}
+Dari definisi $\mathcal{S} = \{ q \in \Hreal^* \mid |q|^2 = 1 \}$. Definisikan fungsi mulus $F : \Hreal^* \to \er^*$ sebagai 
+$$
+F(q) \equiv |q|^2 = \metric{q,q} = q^*q=|a|^2+|b|^2, \quad q=(a,b) \in \Hreal^*,
+$$
+dengan identifikasi $\er$ di $\Hreal$ sebagai $x \leftrightarrow x \satukuart$. Dengan koordinat standar pada $\Hreal^*$ dan $\er^*$, $F$ memenuhi 
+$$
+F(pq) = F\big((a,b)(c,d)\big) = (|a|^2+|b|^2)(|c|^2+|d|^2) = F(p)F(q),
+$$
+untuk sebarang $p=(a,b),q=(c,d) \in \Hreal^*$. Dengan kata lain $F$ adalah homomorfisma grup Lie. Akan ditunjukan bahwa $F$ memiliki rank konstan dengan menunjukan bahwa $F$ pemetaan ekivarian. Pandang perkalian grup Lie $\theta : \Hreal^* \times \Hreal^* \to \Hreal^*$ sebagai aksi kiri dan misalkan $\varphi : \Hreal^* \times \er^* \to \er^*$ adalah aksi kiri mulus $\varphi(q,x) = |q|^2x$. Maka untuk sebarang $p,q \in \Hreal^*$,
+$$
+(F \circ \theta_p) (q) = F(pq) = F(p)F(q) = |p|^2|q|^2 = \theta_{p}(|q|^2)= (\theta_p \circ F)(q).
+$$
+Jadi $F$ ekivarian terhadap aksi transitif kiri $\theta$ dan aksi $\varphi$. Akibatnya rank $F$ konstan dan $\mathcal{S} = F^{-1}(1)$ adalah subgrup Lie dari $\Hreal^*$ yang terembed secara proper. 
+
+Dari Soal 7-16, $\text{SU}(2)$ adalah 
+$$
+\text{SU}(2) = 
+    \begin{Bmatrix}
+        \begin{pmatrix} 
+        a & -\Bar{b} \\
+        b & \Bar{a} 
+        \end{pmatrix} 
+        \Big| \, a,b \in \C \text{ dan } |a|^2+|b|^2 = 1 
+    \end{Bmatrix}.
+$$
+Mudah memeriksa bahwa pemetaan mulus $\mathcal{S} \to \text{SU}(2)$ yang didefinisikan sebagai
+$$
+(a,b) \mapsto \begin{pmatrix} a & -\Bar{b} \\ b & \Bar{a} \end{pmatrix}, 
+$$
+adalah isomorfisma grup Lie. $\blacksquare$
+\end{solution}
+\begin{remark}
+Satu hal yang saya sadari setelah bukti di atas ditulis adalah bahwa homomorfisma grup Lie sudah pasti memiliki rank konstan karena homomorfisma grup Lie adalah pemetaan ekivarian terhadap aksi-aksi kiri yang kanonik. Misal $F: G \to N$ adalah pemetaan mulus antar grup Lie, maka $F$ homomorfisma grup Lie j.h.j. $F$ ekivarian terhadap aksi perkalian kiri $m_G :G \times G \to G$ dan aksi 
+$$
+\varphi : G \times N \xrightarrow{F \times \Id} N \times N \xrightarrow{m_N} N,
+$$
+i.e., untuk setiap $g \in G$, diagram berikut komutatif
+\[
+\begin{tikzcd}
+G  \arrow[rightarrow]{r}{F} \arrow[swap]{d}{L_g} & N   \arrow[rightarrow]{d}{L_{F(g)}} \\
+G \arrow[swap,rightarrow]{r}{F}& N
+\end{tikzcd}
+\]
+Jadi bukti di atas sepertinya berlebihan dan tidak efisien. Tetapi saya tetap membiarkannya karena membantu saya menyadari bahwa homomorfisma grup Lie adalah salah satu contoh pemetaan ekivarian.
+\end{remark}
+
+\section{Medan Vektor}
+\subsection{Soal Latihan}
+\begin{problem}[\textcolor{blue}{Problem 8-1}]
+Buktikan Lema 8.6 (lema ekstensi medan vektor).
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 8-2}]
+TEOREMA FUNGSI HOMOGEN EULER : Misalkan $c$ adalah bilangan real dan $f: \Rn \smallsetminus \{0\} \to \er$ adalah fungsi mulus yang bersifat homogen positif berderajat $c$, yang berarti $f(\lambda x) = \lambda^c f(x)$ untuk semua $\lambda >0$ dan  $x \in \Rn \smallsetminus \{0\}$. Buktikan bahwa $Vf = cf$, dimana $V$ adalah medan vektor Euler yang didefinisikan pada Contoh 8.3.
+\end{problem}
+\begin{solution}
+Misalkan $x \in \Rn \smallsetminus \{0\}$ sebarang. Karena medan vektor Euler $V$ di $\Rn\smallsetminus \{0\}$ didefinisikan sebagai $V = \sum x^i \partial_{x^i}$, maka $V_x = \gamma'(0)$ dengan $\gamma(t)=x+tx$. Sehingga
+$$
+(Vf)_x = V_xf = \gamma'(0)f = \frac{d}{dt}\Big|_{t=0} (f \circ \gamma) (t)=\frac{d}{dt}\Big|_{t=0} f(x+tx) =\frac{d}{dt}\Big|_{t=0} (1+t)^cf(x) = cf(x). 
+$$
+Jadi $Vf=cf$. $\blacksquare$
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 8-3}]
+Misalkan $M$ adalah manifold mulus dengan atau tanpa batas tak kosong berdimensi positif. Tunjukan bahwa $\mathfrak{X}(M)$ berdimensi tak-hingga.
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-4}]
+Misalkan $M$ adalah manifold mulus dengan batas. Tunjukan bahwa ada medan vektor mulus global di $M$ yang restriksinya pada $\partial M$ menunjuk-kedalam (\textit{inward-pointing}) dimana-mana. Tunjukan hal serupa untuk kasus menunjuk-keluar (\textit{outward-pointing}) dimana-mana pada $\partial M$. 
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-5}]
+Buktikan Proposisi 8.11 (pelengkapan kerangka lokal).
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+
+\begin{problem}[\textcolor{blue}{Problem 8-14}]
+Misalkan $M$ adalah manifold mulus dengan atau tanpa batas, $N$ adalah manifold mulus, dan $f : M \to N$ adalah fungsi mulus. Definisikan $F : M \to M \times N$ sebagai $F(x) = (x,f(x))$. Tunjukan bahwa untuk setiap $X \in \mathfrak{X}(M)$ ada medan vektor mulus di $M \times N$ yang terkait-$F$ ke $X$.
+\end{problem}
+\begin{solution}
+Apabila ada medan vektor mulus $Y \in \mathfrak{X}(M \times N)$ yang terkait-$F$ ke $X$ maka untuk setiap $p \in X$, 
+$$
+dF_p(X_p) = \alpha^{-1} \circ \alpha \circ dF_P(X_p) = \alpha^{-1}\big( X_p, df_p(X_p) \big) = Y_{(p,f(p))}, 
+$$
+dengan $\alpha : T_{(p,f(q))}(M \times N) \to T_pM \oplus T_{f(p)}N$ adalah isomorfisma $\alpha(v) = (d\pi_M(v),d\pi_N(v))$. Jadi kita harus mencari $Y \in \mathfrak{X}(M \times N)$ sehingga nilainya pada $\Gamma_f = \{(p,q) \in M \times N \mid p \in M , q=f(p)\}$ memenuhi relasi di atas. Kita jelas dapat mendefinisikan medan vektor kontinu $Y : \Gamma_f \to T(M \times N)$ sebagai
+$$
+\widetilde{Y}_{(p,f(p))} = dF_p(X_p).
+$$
+Sekarang kita tinggal memperluas $Y$ ke seluruh $M \times N$. 
+
+Kita tahu bahwa $\Gamma_f=F(M)$ adalah submanifold dari $M \times N$ yang terembed secara proper (dapat diperiksa bahwa $F$ adalah embedding mulus yang proper), khususnya $\Gamma_f \subseteq M \times N$ adalah himpunan tutup. Karena $\Gamma_f$ tutup, maka berdasarkan Lema 8.6, kita cukup menunjukan bahwa untuk setiap $(p,f(p)) \in \Gamma_f$ ada lingkungan $W$ untuk $(p,f(p))$ dan medan vektor mulus $\widetilde{Y}$ di $W$ sehingga $\widetilde{Y}|_{W \cap \Gamma_f} = Y|_{W \cap \Gamma_f}$. 
+
+Misalkan $(p,f(p)) \in \Gamma_f$ sebarang. Pilih chart (batas) mulus $(U,x^i)$ memuat $p$ dan $(V,y^i)$ memuat $f(p)$ dengan $f(U) \subseteq V$. Maka $(U \times V, (x^i,y^j))$ adalah chart mulus untuk $M \times N$ yang memuat $(p,f(p))$. Bila $X = X^i \partial_{x^i}$ pada $U$ maka
+\begin{align*}
+    Y_{(p,f(p))} &= dF_p(X_p) = \alpha^{-1} \big( X_p,df_p(X_p) \big) = d\iota_M(X_p) + d\iota_N(df_p(X_p)) \\ &= X^i(p) \ddxi\Big|_{(p,f(p))} + X^i(p) \frac{\partial f^j}{\partial x^i}(p) \ddyj\Big|_{(p,f(p))},
+\end{align*}
+dengan $\iota_M : M \hookrightarrow M \times N$ dan $\iota_N : N \hookrightarrow M \times N$ masing-masing adalah inklusi $x \mapsto (x,f(p))$ dan $x \mapsto (p,x)$ berturut-turut. Dengan bentuk ini, jelas bahwa medan vektor $\widetilde{Y} : U \times V \to T(M \times N)$ yang diinginkan adalah 
+$$
+\widetilde{Y}_{(x,y)}:= X^i(x) \ddxi\Big|_{(x,y)} + X^i(x) \frac{\partial f^j}{\partial x^i}(x) \ddyj\Big|_{(x,y)}, \quad \forall (x,y)\in U \times V.
+$$
+Sehingga menurut Lema 8.6 ada medan vektor mulus $Y \in \mathfrak{X}(M \times N)$ yang terkait-$F$ dengan $X$. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-17}]
+Misalkan $M$ dan $N$ adalah manifold-manifold mulus. Diberikan medan-medan vektor $X \in \mathfrak{X}(M)$ dan $Y \in \mathfrak{X}(N)$, kita dapat mendefinisikan medan vektor $X \oplus Y$ di $M \times N$ sebagai
+$$
+(X \oplus Y)_{(p,q)} = (X_p,Y_q),
+$$
+dimana ruas kanan adalah anggota di $T_pM \oplus T_qN$, yang secara natural diidentifikasi  dengan $T_{(p,q)}(M \times N)$ seperti pada Proposisi 3.14. Buktikan bahwa $X \oplus Y$ mulus jika $X$ dan $Y$ juga mulus, dan $[X_1 \oplus Y_1, X_2 \oplus Y_2] = [X_1,X_2] \oplus [Y_1,Y_2]$.
+\end{problem}
+\begin{solution}
+Misalkan $X \in \mathfrak{X}(M)$ dan $Y \in \mathfrak{X}(N)$. Definisikan pemetaan $X \oplus Y : M \times N \to T(M \times N)$ sebagai
+$$
+(X \oplus Y)_{(p,q)} = \alpha^{-1} \circ \alpha \circ (X\oplus Y)_{(p,q)} =  \alpha^{-1}\big( (X_p,Y_q) \big), 
+$$
+dimana $\alpha : T_{(p,q)}(M \times N) \to T_pM \oplus T_qN$ adalah isomorfisma $v \mapsto (d\pi_M(v), d\pi_N(v))$. Misalkan $(p,q) \in M \times N$ sebarang. Pilih chart $(U,x^i)$ di $M$ yang memuat $p$ dan $(V,y^j)$ di $N$ yang memuat $q$. Maka chart $(U \times V, x^1,\dots,x^m,y^1,\dots,y^n)$ adalah chart di $M \times N$ yang memuat $(p,q)$. Misalkan $X = X^i \partial/\partial x^i$ di $U$ dan $Y=Y^j\partial/\partial y^j$ di $V$, maka untuk $(x,y) \in U \times V$,
+\begin{align*}
+(X \oplus Y)_{(x,y)} &= \alpha^{-1} \Big( X^i(x) \ddxi\Big|_{x}, Y^j(y) \ddyi\Big|_{y} \Big) = X^i(x) \, d\iota_M\Big( \ddxi\Big|_{x} \Big) + Y^j(y) \,d\iota_N \Big( \ddyi\Big|_{y} \Big) \\
+&= X^i(x) \ddxi\Big|_{(x,y)} + Y^j(y) \ddyi\Big|_{(x,y)}.
+\end{align*}
+Karena fungsi-fungsi komponen dari $X \oplus Y$ terhadap chart $(U\times V, x^1,\dots,x^m,y^1,\dots,y^n )$ mulus maka $(X \oplus Y)|_{U \times V}$ mulus. Jadi $X \oplus Y$ mulus secara lokal. Akibatnta $X \oplus Y$ adalah medan vektor mulus di $M \times N$. Dengan argumen serupa, konvers pernyataan ini juga berlaku.
+
+Selanjutnya kesamaan $[X_1 \oplus Y_1,X_2 \oplus Y_2] = [X_1,X_2] \oplus [Y_1,Y_2]$ akan dibuktikan secara lokal. Untuk sebarang $(p,q) \in M \times N$ pilih chart $(U\times V, x^1,\dots,x^m,y^1,\dots,y^n)$ yang memuat $(p,q)$. Bila $X_1  = X_1^i \partial_{x^i}$, $X_2 = X_2^k \partial_{x^k}$ pada $U$ dan $Y_1 = Y_1^j \partial_{y^j}$, $Y_2 = Y_2^l \partial_{y^l}$ pada $V$, maka dari perhitungan sebelumnya, bila $W_1 = X_1 \oplus Y_1$ dan $W_2 = X_2 \oplus Y_2$, kita peroleh bentuk $W_1$ dan $W_2$ pada $U \times V$ sebagai
+$$
+W_1  =  W_1^i \ddxi +  W_1^j \ddyj \quad \text{dan} \quad W_2  =  W_2^k \ddxk +  W_2^l \ddyl, 
+$$
+dengan 
+\begin{align*}
+&W_1^i (x,y) = X_1^i(x) \quad 1\leq i \leq m \quad \text{dan} \quad  W_1^j (x,y) = Y_1^j(y) \quad 1\leq j \leq n, \\ 
+&W_2^k (x,y) = X_2^k(x) \quad 1\leq k \leq m \quad \text{dan} \quad  W_2^l (x,y) = Y_2^l(y) \quad 1\leq l \leq n,
+\end{align*}
+untuk setiap $(x,y) \in U \times V$. Dari formula untuk bracket Lie (persamaan (8.9)),
+\begin{align}
+    [W_1,W_2]_{(p,q)} &= (W_1 W_2^k)_{(p,q)} \ddxk\Big|_{(p,q)} + (W_1 W_2^l)_{(p,q)} \ddyl\Big|_{(p,q)} \notag \\ &\quad- (W_2 W_1^i)_{(p,q)} \ddxi\Big|_{(p,q)} - (W_2W_1^j)_{(p,q)} \ddyj\Big|_{(p,q)}. \label{bracket}
+\end{align}
+Suku pertama pada $(\ref{bracket})$ dievaluasi sebagai
+\begin{align*}
+    (W_1W_2^k)_{(p,q)} \ddxk\Big|_{(p,q)} &= \Big( W_1^i(p,q) \ddxi\Big|_{(p,q)} W_2^k + W_1^j(p,q) \ddyj\Big|_{(p,q)} W_2^k \Big) \ddxk\Big|_{(p,q)} \\
+    &= \Big( X_1^i(p) \ddxi\Big|_p X_2^k  + Y_1^j(q) \ddyj\Big|_q X_2^k(p) \Big) \ddxk\Big|_{(p,q)} \\
+    &= (X_1 X_2^k)_p\, \ddxk\Big|_{(p,q)},
+\end{align*}
+dimana kesamaan kedua dan ketiga persamaan di atas adalah hasil dari  observasi bahwa
+\begin{align*}
+    &\ddxi\Big|_{(p,q)} W_2^k = d\iota_U\Big( \ddxi\Big|_p \Big) W_2^k = \ddxi\Big|_p W_2^k \circ \iota_U =  \ddxi\Big|_p X_2^k,  \quad \text{dan} \\
+    &\ddyj\Big|_{(p,q)} W_2^k = d\iota_V \Big( \ddyj\Big|_p \Big) W_2^k = \ddyj\Big|_q W_2^k \circ \iota_V = \ddyj\Big|_q X_2^k(p) = 0. 
+\end{align*}
+Suku ketiga pada $(\ref{bracket})$ adalah
+\begin{align*}
+    (W_2 W_1^i)_{(p,q)} \ddxi\Big|_{(p,q)}&=  \Big( W_2^k(p,q) \ddxk\Big|_{(p,q)} W_1^i + W_2^l(p,q) \ddyl\Big|_{(p,q)} W_1^i \Big) \ddxi\Big|_{(p,q)}, \\
+    &= \Big( X_2^k(p) \ddxk\Big|_p X_1^i + Y_2^l(q) \ddyl\Big|_q X_1^i(p) \Big) \ddxi\Big|_{(p,q)}, \\
+    &= (X_2X_1^i)_p \ddxi\Big|_{(p,q)},
+\end{align*}
+dengan kesamaan diperoleh lewat observasi yang serupa seperti sebelumnya bahwa
+\begin{align*}
+    &\ddxk\Big|_{(p,q)} W_1^i = d\iota_U\Big( \ddxk\Big|_p \Big) W_1^i = \ddxi\Big|_p W_1^i \circ \iota_U =  \ddxi\Big|_p X_1^i,  \quad \text{dan} \\
+    &\ddyl\Big|_{(p,q)} W_1^i = d\iota_V \Big( \ddyl\Big|_p \Big) W_1^i = \ddyl\Big|_q W_1^i \circ \iota_V = \ddyj\Big|_q X_1^i(p) = 0. 
+\end{align*}
+Dengan cara serupa dapat dihitung suku ketiga dan keempat persamaan $(\ref{bracket})$. Sehingga $(\ref{bracket})$ menjadi
+\begin{align*}
+    [X_1 \oplus Y_1,X_2 \oplus Y_2]_{(p,q)} &= (X_1 X_2^k)_p\, \ddxk\Big|_{(p,q)} + (Y_1Y_2^l)_q \ddyl\Big|_{(p,q)}  - (X_2X_1^i)_p \ddxi\Big|_{(p,q)} - (Y_2Y_1^j)_q \ddyj\Big|_{(p,q)}, \\
+    &= [X_1,X_2]^i_p \, \ddxi\Big|_{(p,q)} + [Y_1,Y_2]^j_q \, \ddyj\Big|_{(p,q)}, \\
+    &= \big( [X_1,X_2] \oplus [Y_1,Y_2] \big)_{(p,q)}.
+\end{align*}
+Dengan demikian $[X_1 \oplus Y_1,X_2 \oplus Y_2] =  [X_1,X_2] \oplus [Y_1,Y_2]$. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-18}]
+Misalkan $F : M \to N$ adalah submersi mulus, dimana $M$ dan $N$ adalah manifold-manifold mulus berdimensi positif. Diberikan $X \in \mathfrak{X}(M)$ dan $Y \in \mathfrak{X}(N)$, kita katakan bahwa $X$ adalah suatu $\textbf{lift}$ dari $Y$ jika $Y$ terkait-$F$ dengan $X$. Suatu medan vektor $V \in \mathfrak{X}(M)$ dikatakan $\textbf{vertikal}$ jika $V$ menyinggung serat-serat (\textit{fibers}) dari $F$ dimana-mana (atau, secara ekivalen, jika $V$ terkait-$F$ dengan medan vektor nol di $N$). 
+\begin{itemize}
+    \item [(a)] Tunjukan bahwa jika $\dim M = \dim N$, maka setiap medan vektor mulus di $N$ memiliki lift yang tunggal.
+    \item [(b)] Tunjukan bahwa jika $\dim M \neq \dim N$, maka setiap medan vektor mulus di $N$ memiliki lift yang tidak tunggal.
+    \item [(c)] Asumsikan $F$ surjektif. Diberikan $X \in \mathfrak{X}(M)$, tunjukan bahwa $X$ adalah lift dari suatu medan vektor mulus di $N$ jika dan hanya jika $dF_p(X_p) = dF_q(X_q)$ untuk setiap $p,q \in M$ yang memenuhi $F(p)=F(q)$. Tunjukan bahwa bila ini terjadi, maka $X$ adalah lift dari suatu medan vektor mulus yang tunggal.
+    \item [(d)] Asumsikan bahwa $F$ surjektif dengan serat terhubung. Tunjukan bahwa suatu medan vektor $X \in \mathfrak{X}(M)$ adalah lift dari suatu medan vektor mulus di $N$ jika dan hanya jika $[V,X]$ vertikal untuk setiap $V \in \mathfrak{X}(M)$ yang vertikal.
+\end{itemize}
+\end{problem}
+\begin{solution}
+(a) Misalkan $Y \in \vectfield(N)$. Bila $\dim M = \dim N$ maka $dF_p$ invertible di setiap titik. Definisikan $X : M \to TM$ sebagai $X_p = (dF_p)^{-1}(Y_{F(p)})$. Karena $F$ diffeomorfisma lokal, maka untuk setiap titik $p \in M$ ada lingkungan buka $U\ni p$ dan $V\ni F(p)$ sehingga $F: U \to V$ dan $dF|_{TU} : TU \to TV$ diffeomorfisma. Dari definisi, $X|_U = (dF|_{TU})^{-1} \circ Y|_V \circ F|_U$ sehingga $X$ adalah medan vektor mulus di $M$. Medan vektor ini tunggal dan terkait-$F$ ke $Y$ dari pendefinisiannya. 
+
+(b) Misalkan $m=\dim M \neq \dim N=n$ dan $Y \in \vectfield(N)$. Untuk setiap $p \in M$ ada chart $(U_p,x^i)$ yang berpusat di $p$ dan $(V_{F(p)},y^j)$ yang berpusat di $F(p)$ sehingga representasi $F: M \to N$ adalah
+$$
+\Hat{F}(x^1,\dots,x^m) = (x^1,\dots,x^n).
+$$
+Bila ada medan vektor mulus $X$ yang terkait-$F$ ke $Y$, maka untuk sebarang $x \in U$ berlaku
+$$
+Y_{F(x)} = Y^j(F(x)) \ddyj\Big|_{F(x)} =  dF_x(X_x) = X^i(x) \frac{\doo F^j}{\doo x^i}(x) \ddyj\Big|_{F(x)} = X^i(x) \, \delta^j_i \ddyj\Big|_{F(x)}.
+$$
+Sehingga $n$ komponen pertama dari $X$ pada $(U_p,x^i)$ harus memenuhi $X^i = Y^i \circ F|_{U_p}$. Komponen-komponen sisa dari $X$ dapat dipilih sembarang. Sehingga kita dapat mendefinisikan  medan vektor lokal $X_p : U_p \to TM$ yang terkait-$F$ ke $Y$ sebagai $X_p = X_p^i \partial/\partial x^i$ dengan $X_p^i = Y^i \circ F|_{U_p}$ untuk $i=1,\dots,n$. Karena konstruksi ini dapat dilakukan untuk setiap titik di $M$, kita tinggal memadukan medan-medan vektor lokal ini menggunakan partisi kesatuan (\textit{partition of unity}) untuk mendapatkan medan vektor global $X$, yang diharapkan masih terkait-$F$ ke $Y$. Misalkan $(\psi_p)_{p \in M}$ adalah partisi kesatuan terhadap selimut buka $\{U_p\}_{p \in M}$, definisikan medan vektor mulus $X =\sum_p \psi_p X_p$, dimana $\psi_p X_p$ diinterpretasikan sebagai ekstensi medan vektor lokal $\psi_p|_{U_p} X_p$ ke $M$ yang nilainya nol di luar $\text{supp }\psi_p \subseteq U_p$. Medan vektor ini terkait-$F$ ke $Y$ karena
+\begin{align*}
+dF_x(X|_x) &= dF_x \Big( \sum_{p} (\psi_p X_p)(x) \Big) \\
+&= dF_x\Big(  \sum_{i=1}^N \psi_{p_i}(x) X_{p_i}|_x \Big) \\
+&= \sum_{i=1}^N \psi_{p_i}(x)\, dF_x(X_{p_i}|_x) \\
+&= \sum_{i=1}^N \psi_{p_i}(x)\, Y_{F(x)} \\
+&= Y_{F(x)}.
+\end{align*}
+Jadi $X$ adalah lift dari $Y$. Lift untuk $Y$ tidak tunggal karena konstruksinya bergantung pada pemilihan partisi kesatuan dan pemilihan komponen bentuk lokal $X_p = X^i_p \partial/\partial x^i$.
+
+(c) Misalkan $F : M \to N$ adalah submersi surjektif.
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-19}]
+Tunjukan bahwa $\er^3$ dengan perkalian silang adalah suatu aljabar Lie.
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-20}]
+Misalkan $A \subseteq \mathfrak{X}(\er^3)$ adalah subruang yang dibangun oleh $\{X,Y,Z\}$, dimana
+$$
+X = y \frac{\partial}{\partial z} - z \frac{\partial}{\partial y}, \quad Y = z \frac{\partial}{\partial x} - x \frac{\partial}{\partial z}, \quad Z = x \frac{\partial}{\partial y} - y \frac{\partial}{\partial x}.  
+$$
+Tunjukan bahwa $A$ adalah suatu aljabar Lie dari $\mathfrak{X}(\er^3)$, yang isomorfik dengan $\er^3$ dengan perkalian silang. 
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-23}]
+\begin{itemize}
+    \item [(a)] Diberikan dua aljabar Lie $\mathfrak{g}$ dan $\mathfrak{h}$, tunjukan bahwa tambah langsung $\mathfrak{g} \oplus \mathfrak{h}$ adalah suatu aljabar Lie dengan perkalian yang didefinisikan sebagai
+    $$
+    \big[(X,Y),(X',Y')\big] = \big([X,X'],[Y,Y']\big).
+    $$
+    
+    \item [(b)] Misalkan $G$ dan $H$ adalah grup-grup Lie. Buktikan bahwa $\text{Lie}(G\times H)$ isomorfik dengan $\text{Lie}(G) \oplus \text{Lie}(H)$.
+\end{itemize}
+\end{problem}
+\begin{solution}
+(a) Bukti rutin. Untuk (b), kita ingin mencari isomorfisma $\phi : \LieG \oplus \LieH \to \Lie(G \times H)$. Dugaan awal kita adalah pemetaan $\widetilde{\phi} : \mathfrak{X}(G) \oplus \mathfrak{X}(H) \to \mathfrak{X}(G \times H)$ yang didefinisikan sebagai $\widetilde{\phi}(X,Y) = X\oplus Y$. Dari soal 8-17, pemetaan ini terdefinisi dan mudah melihat bahwa $\widetilde{\phi}$ adalah pemetaan linear. Dari 8-17 pemetaan ini juga mengawetkan perkalian Lie, dengan perkalian Lie pada $\mathfrak{X}(G) \oplus \mathfrak{X}(H)$ adalah seperti pada (a) : untuk sebarang $(X,Y) ,(X',Y') \in \mathfrak{X}(G) \oplus \mathfrak{X}(H)$ berlaku
+\begin{align*}
+    \widetilde{\phi}\, \big[(X,Y),(X',Y') \big] &= \widetilde{\phi}\big( [X,X'],[Y,Y'] \big) \\ &=  [X,X'] \oplus [Y,Y'] \\ &= [X \oplus Y, X' \oplus Y'] \\ &= [\widetilde{\phi}(X,Y), \widetilde{\phi}(X',Y')].
+\end{align*}
+Jadi $\widetilde{\phi}$ adalah homomorfisma aljabar Lie. Sekarang tinggal kita buktikan bahwa pemetaan restriksi $ \phi : \LieG \oplus \LieH \to \Lie(G \times H)$ terdefinisi dan invertible. Bila ini terdefinsi maka $\phi$ isomorfisma grup Lie karena $\widetilde{\phi}$ jelas satu-satu dan domain dan codomain $\phi$ berdimensi sama.
+
+Sekarang kita ingin menunjukan bahwa $\phi$ terdefinisi, yaitu bahwa untuk sebarang $X \in \LieG$ dan $Y \in \LieH$, $X \oplus Y$ adalah medan vektor  invarian kiri. Misalkan $X \in \LieG$, $Y \in \LieH$ dan $(g,h) \in G \times H$ sebarang. Notasikan $\alpha : T_{(g,h)}(G \times H) \to T_gG \oplus T_hH$ sebagai isomorfisma $\alpha(v) = (d\pi_G(v), d\pi_H(v))$. Translasi kiri $L_{(g,h)} : G \times H \to G \times H$ adalah $L_{(g,h)} (g',h') = (gg',hh') = (L_g\times L_h) (g',h')$. Untuk sebarang $(g',h') \in G \times H$, notasikan $\beta : T_{(gg',hh')}(G \times H) \to T_{gg'}G \oplus T_{hh'}H$ sebagai isomorfisma $\alpha'(v) = (d\pi_G(v),d\pi_H(v))$, maka
+\begin{align*}
+d(L_g\times L_h)_{(g',h')} (X \oplus Y)_{(g',h')} &= \beta^{-1} \circ \beta \circ d(L_g\times L_h)_{(g',h')} \circ \alpha^{-1}(X_{g'},Y_{h'}) \\
+&=\beta^{-1}\Big(d(L_g)_{g'}(X_{g'}), d(L_h)_{h'}(Y_{h'}) \Big) \\
+&= \beta^{-1}\big( X_{gg'}, Y_{hh'} \big) \\
+&= (X \oplus Y)_{(gg',hh')}.
+\end{align*}
+Dengan demikian $X \oplus Y \in \Lie(G \times H)$, dan pemetaan $\phi : \Lie(G) \oplus \Lie(H) \to \Lie(G \times H)$ yang didefinisikan sebagai $\phi (X,Y) = X \oplus Y$ adalah isomorfisma grup Lie. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-24}]
+Misalkan $G$ adalah grup Lie dan $\mathfrak{g}$ adalah aljabar Lienya. Suatu medan vektor $X \in \mathfrak{X}(G)$ dikatakan $\textbf{invarian-kanan}$ (\textit{right-invariant}) jika $X$ invarian terhadap semua translasi kanan.
+\begin{itemize}
+    \item [(a)] Tunjukan bahwa himpunan semua medan vektor invarian-kanan $\Bar{\mathfrak{g}}$ pada $G$ adalah suatu subaljabar Lie dari $\mathfrak{X}(G)$.
+    
+    \item [(b)] Misalkan $i : G \to G$ adalah pemetaan invers $i(g)=g^{-1}$. Tunjukan bahwa restriksi differensial $i_{*} : \mathfrak{X}(G) \to \mathfrak{X}(G)$ adalah isomorfisma aljabar Lie dari $\mathfrak{g}$ ke $\Bar{\mathfrak{g}}$. 
+\end{itemize}
+\end{problem}
+\begin{solution}
+Untuk (a) mudah melihat bahwa $\Bar{g}$ adalah subruang vektor dari $\vectfield(G)$. Kita tinggal menunjukan bahwa $\Bar{\mathfrak{g}}$ tertutup terhadap $[\cdot,\cdot]$. Misalkan $X,Y \in \Bar{\mathfrak{g}}$ sebarang. Karena untuk setiap $g \in G$, $R_g$ adalah diffeomorfisma, maka dari Corollary 8.31, 
+$$
+(R_g)_*[X,Y] = [(R_g)_*X, (R_g)_*Y] = [X,Y].
+$$
+Jadi $[X,Y]$ invarian terhadap semua translasi kanan. 
+
+Untuk (b), jelas bahwa $i_* : \vectfield(G) \to \vectfield(G)$ adalah pemetaan linear yang mengawetkan $[\cdot,\cdot]$. Kita tunjukan dahulu bahwa $i_*(\mathfrak{g}) \subseteq \Bar{\mathfrak{g}}$. Misalkan $X \in \mathfrak{g}$ dan $g \in G$ sebarang, maka $\forall h \in G$,
+\begin{align*}
+    \big((R_g)_*(i_*X)\big)_{h} &= d(R_g)_{R_g^{-1}(h)} (i_*X)_{R_g^{-1}(h)}  \\
+    &= d(R_g)_{hg^{-1}} (i_*X)_{hg^{-1}} \\
+    &= d(R_g)_{hg^{-1}} \circ di_{gh^{-1}} (X_{gh^{-1}})\\
+    &= d(R_g \circ i)_{gh^{-1}} X_{gh^{-1}} \\
+    &= d(R_g \circ i)_{gh^{-1}} \circ d(L_g)_{h^{-1}} (X_{h^{-1}}) \\
+    &= d(R_g \circ i \circ L_g)_{h^{-1}}(X_{h^{-1}}) \\
+    &= di_{h^{-1}}(X_{h^{-1}}) \\
+    &= (i_*X)_{h}.
+\end{align*}
+Jadi $(R_g)_* (i_*X) = i_*X$. I.e., $i_*X \in \Bar{\mathfrak{g}}$. Ini berarti pemetaan linear $i_* : \mathfrak{g} \to \Bar{\mathfrak{g}}$ terdefinisi, yaitu suatu homomorfisma aljabar Lie dari $\mathfrak{g}$ ke $\Bar{\mathfrak{g}}$. Dapat diperiksa bahwa $i \circ i = \text{Id}_G$ mengakibatkan 
+$$
+i_*(i_*X)|_g = di_{g^{-1}} (i_*X)_{g^{-1}} = di_{g^{-1}} \circ di_g (X_g) = d(\Id_G)_g(X_g) = X_g,
+$$
+untuk sebarang $X \in \mathfrak{g}$ dan $g \in G$. Dengan kata lain
+$$
+\Id_{\mathfrak{g}}  =  i_* \circ i_* : \mathfrak{g} \to \mathfrak{g}.
+$$
+Jadi $i_* : \mathfrak{g} \to \bar{\mathfrak{g}}$ invertibel dengan inversnya adalah dirinya sendiri. Dengan demikian $i_*$ adalah isomorfisma aljabar Lie dari $\mathfrak{g}$ ke $\bar{\mathfrak{g}}$. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-25}]
+Buktikan bahwa jika $G$ adalah grup Lie abelian, maka $\LieG$ juga abelian. [Petunjuk : tunjukan bahwa pemetaan invers $i : G \to G$ adalah homomorfisma grup, dan gunakan Problem 7-2.] 
+\end{problem}
+\begin{solution}
+Bila $G$ abelian, maka $i(gh) - h^{-1}g^{-1} = g^{-1}h^{-1} = i(g)i(h)$, dengan kata lain $i$ adalah homomorfisma grup Lie. Dari Teorema 8.44, $i_* : \LieG \to \LieG$ adalah homomorfisma aljabar Lie dimana untuk setiap $X \in \LieG$, $i_*X \in \LieG$ adalah medan vektor yang terkait-$i$ dengan $X$. Dengan bantuan Problem 7-2, untuk setiap $X \in \LieG$, 
+$$
+i_*X|_g = (di_e(X_e))^{\text{L}}|_g = d(L_g)_e (-X_e) = -X_g \implies i_*X = -X. 
+$$
+Sehingga untuk sebarang $X,Y \in \LieG$,
+$$
+-[X,Y] = i_*[X,Y] = [i_*X,i_*Y] = [-X,-Y] = [X,Y] \implies [X,Y] = 0. \quad \blacksquare
+$$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-26}]
+Misalkan $F : G \to H$ adalah suatu homomorfisma grup Lie. Tunjukan bahwa kernel dari $F_{*} : \LieG \to \LieH$ adalah aljabar Lie dari $\kernel F$ (dengan melakukan identifikasi seperti yang dipaparkan pada Teorema 8.46).
+\end{problem}
+\begin{solution}
+Dari Teorema 8.46, $K\equiv \kernel F \subseteq G$ adalah subgrup Lie dengan aljabar Lie, $\Lie (K)$, yang isomorfik dengan peta 
+$$
+\iota_*\big(\Lie(K)\big) = \{ X \in \LieG \mid X_e \in T_eK\}
+$$
+dimana $\iota_* : \Lie(K) \to \LieG$ 
+adalah homomorfisma aljabar Lie yang diinduksi oleh pemetaan inklusi $\iota : K \hookrightarrow G$. Kita ingin menunjukan bahwa 
+$$
+\kernel F_* = \iota_* (\Lie(K)) = \{X \in \LieG \mid X_e \in T_eK\}.
+$$
+Tetapi karena $K \equiv \kernel F = F^{-1}(e)$ dan dari definisi $F_*(X) = \big(dF_e(X_e)\big)^{\text{L}}$, maka
+\begin{align*}
+\iota_*\big(\Lie(K)\big) &= \{ X \in \LieG \mid X_e = T_eK\} \\
+&= \{ X \in \LieG \mid X_e \in T_eF^{-1}(e) \} \\
+&= \{  X \in \LieG \mid X_e \in \kernel dF_e \} \\
+&= \{ X\in \LieG \mid dF_e(X_e) = 0 \} \\
+&= \{ X\in \LieG \mid \big(dF_e(X_e)\big)^{\text{L}} = 0 \} \\
+&= \{ X\in \LieG \mid F_*(X) =0 \} \\
+&= \kernel F_*.
+\end{align*}
+Jadi $\Lie(\kernel F) \cong \kernel F_*$. $\blacksquare$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-27}]
+Misalakan $G$ dan $H$ adalah grup-grup Lie, dan misalkan $F: G \to H$ adalah suatu homomorfisma grup Lie yang juga merupakan diffeomorfisma lokal. Tunjukan bahwa homomorfisma $F_* : \LieG \to \LieH$ adalah suatu isomorfisma aljabar Lie.
+\end{problem}
+\begin{solution}
+Karena $F$ diffeomorfisma lokal, maka $\dim \LieG = \dim \LieH$ sehingga kita hanya perlu menunjukan bahwa homomorfisma aljabar Lie $F_*$ satu-satu atau pada. Misalkan $X \in \LieG$ sehingga $F_*X = 0$. Ini berarti 
+$$
+F_*X|_e = (dF_e(X_e))^{\text{L}}|_e = dF_e(X_e) = 0 \implies X_e = 0,
+$$
+karena $dF_e$ bijektif. Dengan demikian $X =  (X_e)^{\text{L}} = 0$. Jadi $F_*$ isomorfisma aljabar Lie. $\blacksquare$ 
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-28}]
+Dengan meninjau pemetaan $\det : \GLnr \to \er^*$ sebagai homomorfisma grup Lie, tunjukan bahwa homomorfisma aljabar Lie yang diinduksi adalah $\text{tr} : \mathfrak{gl}(n,\er) \to \er$. [Petunjuk : lihat Problem 7-4.] 
+\end{problem}
+\begin{solution}
+Dengan identifikasi $\mathfrak{gl}(n,\er)\leftrightarrow T_{I_n}\GLnr \leftrightarrow \Lie(\GLnr)$ seperti pada Proposisi 8.41, yaitu
+$$
+(A^i_j) \leftrightarrow A\equiv A^i_j \frac{\partial}{\partial X^i_j}\Big|_{I_n} \leftrightarrow A^{\text{L}},
+$$
+maka untuk sebarang $A^{\text{L}} \in \Lie(\GLnr)$, Problem 7-4(b) memberikan
+$$
+\text{det}_*(A^{\text{L}})|_1 = d(\det)_{I_n}(A) = \det(I_n) \text{tr}(I_n^{-1} (A^i_j)) = \text{tr}(A^i_j).
+$$
+Dengan kata lain
+$
+\text{tr} : \mathfrak{gl}(n,\er) \longrightarrow \Lie(\GLnr) \xrightarrow{\text{det}_*} \Lie(\er^*) \xrightarrow{\varepsilon} \er. \quad \blacksquare
+$
+\end{solution}
+
+\begin{problem}[\textcolor{blue}{Problem 8-31}]
+Misalkan $\mathfrak{g}$ adalah suatu aljabar Lie. Suatu subruang linear $\mathfrak{h}\subseteq \mathfrak{g}$ disebut suatu $\textbf{ideal di } \mathfrak{g}$ jika $[X,Y] \in \mathfrak{h}$ untuk setiap $X \in \mathfrak{h}$ dan $Y \in \mathfrak{g}$.
+\begin{itemize}
+    \item [(a)] Tunjukan bahwa jika $\mathfrak{h}$ adalah suatu ideal di $\mathfrak{g}$, maka ruang kuosien $\mathfrak{g}/\mathfrak{h}$ memiliki struktur aljabar Lie yang tunggal sehingga proyeksi $\pi : \mathfrak{g} \to \mathfrak{g}/\mathfrak{h}$ adalah homomorfisma aljabar Lie.
+    
+    \item [(b)] Tunjukan bahwa subruang $\mathfrak{h} \subseteq \mathfrak{g}$ adalah suatu ideal jika dan hanya jika $\mathfrak{h}$ adalah kernel dari suatu homomorfisma aljabar Lie.
+\end{itemize}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+
+\section{Kurva Integral dan Aliran}
+\subsection{Soal Latihan}
+\begin{problem}[\textcolor{blue}{Problem 9-6}]
+Buktikan Lema 9.19 (\textit{Escape Lemma}) : Misalkan $M$ adalah manifold mulus dan $V \in \vectfield(M)$. Jika $\gamma : J \to M$ adalah kurva integral maksimal dari $V$ dimana domain $J$ memiliki batas atas terkecil yang berhingga $b$, maka untuk setiap $t_0 \in J$, $\gamma\big([t_0,b)\big)$ tidak termuat di setiap subset kompak dari $M$.
+\end{problem}
+
+\begin{solution}
+Sketsa : Misalkan sebaliknya, maka $\gamma$ dapat diperluas, berkontradiksi dengan hipotesis bahwa $\gamma$ maksimal.
+\end{solution}
+
+
+
+
+\section{Metrik Riemann}
+\subsection{Soal Latihan}
+\begin{problem}[\textcolor{blue}{Problem 13-21}]
+Misalkan $(M,g)$ adalah manifold Riemann, $f \in \CinfM$, dan $p\in M$ adalah titik regular dari $f$.
+\begin{enumerate}[nolistsep]
+\item[(a)] Tunjukan bahwa diantara semua vektor-vektor satuan $v \in T_pM$, turunan berarah $vf$ bernilai paling besar ketika $v$ memiliki arah yang sama dengan $\grad f|_p$, dan panjang $\grad f|_p$ sama dengan nilai turunan berarah pada arah tersebut.
+\item[(b)] Tunjukan bahwa $\grad f|_p$ normal terhadap himpunan tingkatan (\textit{level set}) dari $f$ yang melalui $p$. 
+\end{enumerate}
+\end{problem}
+\begin{solution}
+(a) Dari definisi, $\grad f = \widehat{g}^{-1} (df) \in \vectfield(M)$ sehingga untuk sebarang $v \in T_pM$
+$$
+\langle \grad f|_p, v\rangle_g = df_p(v) = vf.
+$$
+Dari ketaksamaan Cauchy-Schwarz kita peroleh
+$$
+ |vf|^2 = \big|\langle\text{grad }f|_p, v\rangle_g\big|^2 \leq \big|\text{grad }f|_p\big|^2 \big|v\big|^2 = \big|\text{grad }f|_p\big|^2.
+$$
+Jadi $vf$ maksimum ketika $vf = \big|\text{grad }f|_p\big|$. Karena
+$$
+\grad f|_p (f) = \langle \grad f|_p,\grad f|_p \rangle_g = \big|\grad f|_p\big|^2 = \big|\grad f|_p\big| \cdot vf, 
+$$
+maka 
+$$
+vf = \frac{\grad f|_p}{\big|\grad f|_p\big|} f.
+$$ 
+
+Untuk (b), misalkan $S\subseteq M$ adalah himpunan tingkatan yang melalui $p$, yaitu $S = f^{-1}(f(p))$. Karena $T_pS = \kernel df_p$, maka untuk sebarang $v \in T_pS$
+$$
+ \langle \grad f|_p,v \rangle_g = vf = df_p(v) = 0.
+$$
+Dengan demikian $ \grad f|_p$ normal terhadap $T_pS$.  $\blacksquare$
+\end{solution}
+
+
+
+
+\section{Pemetaan Eksponensial}
+
+\section{Manifold Kuosien}
+
+\subsection{Soal Latihan}
+
+\begin{problem}[\textcolor{blue}{Problem 21-1}]
+Misalkan grup Lie $G$ beraksi secara kontinu pada manifold $M$. Tunjukan bahwa jika pemetaan $\theta : G \times M \to M$ yang mendefinisikan aksi ini adalah pemetaan proper, maka aksi ini proper. Berikan contoh penyangkal untuk menunjukan bahwa konvers pernyataan di atas tidak benar.    
+\end{problem}
+\begin{solution}
+Misalkan $\theta : G \times M \to M$ adalah pemetaan proper dan $\Phi : G \times M \to M \times M$ adalah pemetaan $\Phi(g,p) = \big( \theta(g,p), p\big)$.  Akan ditunjukan bahwa $\Phi$ adalah pemetaan proper. Perhatikan bahwa $\pi_1 \circ \Phi  = \theta$ dengan $\pi_1 : M \times M \to M$ adalah proyeksi $\pi_1(x,y) = x$. Untuk sebarang subset kompak $K \subseteq M \times M$, berlaku $\pi_1^{-1} \big(\pi_1(K) \big) \supseteq K$ sehingga 
+$$
+\theta^{-1}\big(\pi_1(K)\big) = (\pi_1 \circ \Phi)^{-1}\big(\pi_1(K)\big)  = \Phi^{-1} \circ \pi_1^{-1}  \big( \pi_1 (K) \big) \supseteq \Phi^{-1}(K).
+$$
+Karena $K$ kompak dan $\theta$ adalah pemetaan proper, maka $\theta^{-1}\big(\pi_1(K)\big) \subseteq G \times M$ kompak. Lebih jauh $K$ dan $\Phi^{-1}(K)$ tutup karena $K$ adalah subset kompak dari ruang Hausdorff $M \times M$ dan kerena $\Phi$ kontinu. Sehingga subset tutup $\Phi^{-1}(K)$ dari subset kompak $\theta^{-1}\big(\pi_1(K)\big)$ haruslah kompak. Jadi $\Phi$ adalah pemetaan proper.
+
+Untuk contoh penyangkal, perhatikan aksi $T : \er \times \er^2 \to \er^2$ yang didefinisikan seperti pada contoh 21.2 (b), yaitu
+$$
+v \cdot (x,y) := (v+x, y). 
+$$
+Aksi $T$ bukan pemetaan proper karena $T^{-1}(0,0) = \{(-\lambda,(\lambda,0) )  \mid \lambda \in \er \}$ tidak kompak. Tetapi pemetaan $\Phi : \er \times \er^2 \to \er^2 \times \er^2$ yang didefinisikan sebagai 
+$$
+\big(v,(x,y)\big) \mapsto \big((v+x,y),(x,y) \big)
+$$ 
+proper. Untuk melihatnya, misalkan $K \subseteq \er^2 \times \er^2$ kompak dan $\Psi : \er^2 \times \er^2 \to \er \times \er^2$ didefinisikan sebagai $\Psi(x_1,x_2,x_3,x_4)=(x_1-x_3,x_3,x_4)$ adalah invers kiri dari $\Phi$. Maka dari $\Phi \circ \Phi^{-1}(K)  \subseteq K$ kita punya
+$$
+\Phi^{-1}(K)=(\Psi \circ \Phi) \big( \Phi^{-1}(K)\big) \subseteq \Psi (K).
+$$
+Karena $K$ kompak, $\Psi(K)$ kompak dan $\Phi^{-1}(K)$ tutup. Akibatnya $\Phi^{-1}(K)$ kompak. Jadi $\Phi$ pemetaan proper. $\blacksquare$
+\end{solution}
+
+
+\end{document}
